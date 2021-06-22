@@ -23,7 +23,7 @@
                             <a class="nav-link" id="tab-account-link" data-toggle="tab" href="#tab-account" role="tab" aria-controls="tab-account" aria-selected="false">Account Details</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sign Out</a>
+                            <a class="nav-link" href="{{ route('logout') }}">Sign Out</a>
                         </li>
                     </ul>
                 </aside>

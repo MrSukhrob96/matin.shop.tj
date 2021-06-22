@@ -5,9 +5,9 @@
         <div class="row justify-content-center">
             <h2 class="title text-center mb-7 border-bottom pb-1">
                 @isset($title)
-                {{ $title }}
+                    {{ $title }}
                 @else
-                SIMLAR PRODUCTS
+                    SIMLAR PRODUCTS
                 @endisset
             </h2>
         </div>
@@ -43,35 +43,32 @@
             @foreach($products as $product)
             <div class="product product-7 text-center">
                 <figure class="product-media">
-                    <a href="{{ 
-                        route('product_show', 
-                                [
-                                    'category' => $product->category->slug, 
-                                    'product' => $product->slug
-                                ]
-                            ) 
-                    }}">
+                    <a href="{{ route('product_show', ['category' => $product->category[0]->slug, 'product' => $product->slug]) }}">
                         <img src="{{ asset('storage/uploads/products/'.$product->product_img) }}" alt="Product image" class="product-image">
                     </a>
 
                     <div class="product-action-vertical">
-                        <form action="">
-                            <button type="submit" class="btn-product-icon btn-wishlist btn-expandable" style="border: none;">
+                        <form action="{{ route('profile.wishlist_add', ['product' => $product->slug]) }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn-product-icon btn-wishlist btn-expandable border-0">
                                 <span>add to wishlist</span>
                             </button>
                         </form>
                     </div>
 
                     <div class="product-action">
-                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                        <form action="{{ route('profile.order_add', ['product' => $product->slug ]) }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn-product btn-cart border-0"><span>add to cart</span></button>
+                        </form>
                     </div>
                 </figure>
 
                 <div class="product-body">
                     <h3 class="product-title">
-                        <a href="product.html">
+                        <span>
                             {{ $product->product_name }}
-                        </a>
+                        </span>
                     </h3>
                     <div class="product-price">
                         {{ $product->product_price }} сомон
@@ -80,7 +77,7 @@
                         <div class="ratings">
                             <div class="ratings-val" style="width: {{$product->product_rating}}%;"></div>
                         </div>
-                        <span class="ratings-text">( 2 Reviews )</span>
+                        <!-- <span class="ratings-text">( 2 Reviews )</span> -->
                     </div>
                 </div>
             </div>
@@ -89,7 +86,7 @@
         </div>
         <div class="col">
             <div class="more-container text-center mt-2 mb-0">
-                <a href="{{ route('products', ['category' => 'all'])}}" class="btn btn-outline-dark-2 btn-round btn-more">
+                <a href="{{ route('categories') }}" class="btn btn-outline-dark-2 btn-round btn-more">
                     <span>Show All</span><i class="icon-long-arrow-right"></i>
                 </a>
             </div>

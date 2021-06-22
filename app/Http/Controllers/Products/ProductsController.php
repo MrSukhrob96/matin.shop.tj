@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Products;
 
 use App\Http\Controllers\Controller;
+use App\Services\Front\BrandService;
 use Illuminate\Http\Request;
 
 use App\Services\Front\ProductService;
@@ -11,20 +12,26 @@ use App\Services\Front\CategoryService;
 class ProductsController extends Controller
 {
     public $products;
+    public $categories;
+    public $brands;
 
     public function __construct(
         ProductService $products,
-        CategoryService $categories
+        CategoryService $categories,
+        BrandService $brandService
     ) {
         $this->products = $products;
         $this->categories = $categories;
+        $this->brands = $brandService;
     }
 
-    public function index()
+    public function index($category)
     {
         return view('front.products.index', [
             "categories" => $this->categories->all_categories(),
-            'products' => $this->products->all_products()
+            "subcategories" => $this->categories->subcategories($category),
+            "products" => $this->products->products_by_category($category),
+            "brands" => $this->brands->sub_category_brands($category)
         ]);
     }
 
@@ -36,8 +43,12 @@ class ProductsController extends Controller
     {
     }
 
-    public function show($id)
+    public function show($sub_category)
     {
+        return view('front.categories.index', [
+            "categories" => $this->categories->all_categories(),
+            'products' => $this->products->sub_category_products($sub_category)
+        ]);
     }
 
     public function edit($id)

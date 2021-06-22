@@ -2,17 +2,20 @@
     <div class="container pt-1 pb-1">
         <div class="header-left">
             <div class="dropdown category-dropdown">
-                <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Browse Categories">
+                <a href="{{ route('categories') }}" class="dropdown-toggle border" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Browse Categories">
                     ALL CATEGORIES <i class="icon-angle-down"></i>
                 </a>
 
                 <div class="dropdown-menu">
                     <nav class="side-nav">
                         <ul class="menu-vertical sf-arrows">
+                            <li class="item-lead">
+                                <a href="{{ route('categories') }}">ALL CATEGORIES</a>
+                            </li>
                             @foreach($categories as $category)
-                                <li class="item-lead">
-                                    <a href="{{ route('products', ['category' => $category->slug]) }}">{{ $category->category_name }}</a>
-                                </li>
+                            <li class="item-lead">
+                                <a href="{{ route('products', ['category' => $category->slug]) }}">{{ $category->category_name }}</a>
+                            </li>
                             @endforeach
                         </ul>
                     </nav>

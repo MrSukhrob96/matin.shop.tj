@@ -1,7 +1,7 @@
 @extends('_layouts.front.app')
 
 @section('content')
-<section class="my-5">
+<section class="mt-7 mb-7">
     <div class="login-page">
         <div class="container">
             <div class="form-box">
@@ -13,16 +13,17 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="signin-2" role="tabpanel" aria-labelledby="signin-tab-2">
-                            <form action="#">
+                            <form action="{{ route('login') }}" method="post">
+                                @csrf
                                 <div class="form-group">
-                                    <label for="singin-email-2">Username or email address *</label>
-                                    <input type="text" class="form-control" id="singin-email-2" name="singin-email" required>
-                                </div><!-- End .form-group -->
+                                    <label for="singin-email-2">Email</label>
+                                    <input type="text" class="form-control" id="singin-email-2" name="email" required>
+                                </div>
 
                                 <div class="form-group">
-                                    <label for="singin-password-2">Password *</label>
-                                    <input type="password" class="form-control" id="singin-password-2" name="singin-password" required>
-                                </div><!-- End .form-group -->
+                                    <label for="singin-password-2">Password</label>
+                                    <input type="password" class="form-control" id="singin-password-2" name="password" required>
+                                </div>
 
                                 <div class="form-footer">
                                     <button type="submit" class="btn btn-outline-primary-2">
@@ -31,35 +32,16 @@
                                     </button>
 
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="signin-remember-2">
+                                        <input type="checkbox" class="custom-control-input" id="signin-remember-2" name="remember_me">
                                         <label class="custom-control-label" for="signin-remember-2">Remember Me</label>
-                                    </div><!-- End .custom-checkbox -->
-
-                                    <a href="#" class="forgot-link">Forgot Your Password?</a>
-                                </div><!-- End .form-footer -->
+                                    </div>
+                                </div>
                             </form>
-                            <div class="form-choice">
-                                <p class="text-center">or sign in with</p>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <a href="#" class="btn btn-login btn-g">
-                                            <i class="icon-google"></i>
-                                            Login With Google
-                                        </a>
-                                    </div><!-- End .col-6 -->
-                                    <div class="col-sm-6">
-                                        <a href="#" class="btn btn-login btn-f">
-                                            <i class="icon-facebook-f"></i>
-                                            Login With Facebook
-                                        </a>
-                                    </div><!-- End .col-6 -->
-                                </div><!-- End .row -->
-                            </div><!-- End .form-choice -->
-                        </div><!-- .End .tab-pane -->
-                    </div><!-- End .tab-content -->
-                </div><!-- End .form-tab -->
-            </div><!-- End .form-box -->
-        </div><!-- End .container -->
-    </div><!-- End .login-page section-bg -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 @endsection

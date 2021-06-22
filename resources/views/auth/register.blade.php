@@ -1,7 +1,7 @@
 @extends('_layouts.front.app')
 
 @section('content')
-<section class="my-5">
+<section class="mt-7 mb-7">
     <div class="login-page">
         <div class="container">
             <div class="form-box">
@@ -13,16 +13,35 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
-                            <form action="#">
-                                <div class="form-group">
-                                    <label for="register-email-2">Your email address *</label>
-                                    <input type="email" class="form-control" id="register-email-2" name="register-email" required>
-                                </div><!-- End .form-group -->
+                            <form action="{{ route('signup_post') }}" method="post">
+                                @csrf
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <label for="user_name">Name</label>
+                                        <input type="text" id="user_name" class="form-control" name="name" placeholder="Alex" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="user_surname">Second Name</label>
+                                        <input type="text" id="user_surname" class="form-control" name="surname" placeholder="Braund" required>
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="register-password-2">Password *</label>
-                                    <input type="password" class="form-control" id="register-password-2" name="register-password" required>
-                                </div><!-- End .form-group -->
+                                    <div class="col-12">
+                                        <label for="user_email">Email Address</label>
+                                        <input type="email" id="user_email" class="form-control" name="email" placeholder="alexbraun@gmail.com" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="user_phone">Phone number</label>
+                                        <input type="text" id="user_phone" class="form-control" name="phone" placeholder="92-635-24-44" maxlength="9" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="user_password">Password</label>
+                                        <input type="password" id="user_password" class="form-control" name="password" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="user_password_confirm">Password Confirm</label>
+                                        <input type="password" id="user_password_confirm" class="form-control" name="password_confirmation" required>
+                                    </div>
+                                </div>
 
                                 <div class="form-footer">
                                     <button type="submit" class="btn btn-outline-primary-2">
@@ -30,13 +49,13 @@
                                         <i class="icon-long-arrow-right"></i>
                                     </button>
 
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="register-policy-2" required>
+                                    <!-- <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="register-policy-2" >
                                         <label class="custom-control-label" for="register-policy-2">I agree to the <a href="#">privacy policy</a> *</label>
-                                    </div><!-- End .custom-checkbox -->
-                                </div><!-- End .form-footer -->
+                                    </div> -->
+                                </div>
                             </form>
-                            <div class="form-choice">
+                            <!-- <div class="form-choice">
                                 <p class="text-center">or sign in with</p>
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -44,21 +63,21 @@
                                             <i class="icon-google"></i>
                                             Login With Google
                                         </a>
-                                    </div><!-- End .col-6 -->
+                                    </div>
                                     <div class="col-sm-6">
                                         <a href="#" class="btn btn-login  btn-f">
                                             <i class="icon-facebook-f"></i>
                                             Login With Facebook
                                         </a>
-                                    </div><!-- End .col-6 -->
-                                </div><!-- End .row -->
-                            </div><!-- End .form-choice -->
-                        </div><!-- .End .tab-pane -->
-                    </div><!-- End .tab-content -->
-                </div><!-- End .form-tab -->
-            </div><!-- End .form-box -->
-        </div><!-- End .container -->
-    </div><!-- End .login-page section-bg -->
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 @endsection

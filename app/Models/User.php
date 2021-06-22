@@ -7,19 +7,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Cviebrock\EloquentSluggable\Sluggable;
 
 use App\Models\Product;
 use App\Models\Order;
+use App\Models\Wishlist;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, SoftDeletes, Sluggable;
+    use HasFactory, Notifiable;
 
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
         'name',
+        'surname',
+        'phone',
         'email',
         'password',
     ];
@@ -43,18 +45,9 @@ class User extends Authenticatable
         return $this->hasMany(Order::class);
     }
 
-    public function wishlist()
+    public function wishlists()
     {
-        return $this->belongsToMany(Wishlist::class);
-    }
-
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'category:slug' => 'title'
-            ]
-        ];
+        return $this->hasMany(Wishlist::class);
     }
 
 }

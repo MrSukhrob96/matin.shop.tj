@@ -9,16 +9,22 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 use App\Models\SubCategory;
 use App\Models\Brand;
+use App\Models\Wishlist;
+use App\Models\Order;
 
 class Product extends Model
 {
     use HasFactory, SoftDeletes, Sluggable;
 
+    protected $fillable = array(
+        
+    );
+
     protected $dates = ['deleted_at'];
 
     public function category()
     {
-        return $this->belongsTo(SubCategory::class, "sub_category_id", "id");
+        return $this->belongsToMany(SubCategory::class);
     }
 
     public function brand()
@@ -33,6 +39,16 @@ class Product extends Model
                 'product:slug' => 'product_name'
             ]
         ];
+    }
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class);
+    }
+
+    public function wishlists()
+    {
+        return $this->belongsToMany(Wishlist::class);
     }
 
 }

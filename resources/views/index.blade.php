@@ -3,7 +3,7 @@
 @section('content')
 @include("_components.sliders.main_intro_slider")
 
-@include("_components.category.best__categories")
+{{--@include("_components.category.best__categories")--}}
 
 @include("_components.sliders.testimorials", ["title" => "Best products", "products" => $best_products])
 

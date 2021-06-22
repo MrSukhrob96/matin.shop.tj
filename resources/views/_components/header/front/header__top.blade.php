@@ -9,25 +9,25 @@
                 <li>
                     <div class="header-dropdown">
                         <a href="#">TJS</a>
-                        <div class="header-menu">
+                        <!-- <div class="header-menu">
                             <ul>
                                 <li><a href="#">RUB</a></li>
                                 <li><a href="#">USD</a></li>
                                 <li><a href="#">TJS</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </li>
                 <li>
                     <div class="header-dropdown">
-                        <a href="#">English</a>
-                        <div class="header-menu">
+                        <a href="#">Russian</a>
+                        <!-- <div class="header-menu">
                             <ul>
                                 <li><a href="#">English</a></li>
                                 <li><a href="#">Tajik</a></li>
                                 <li><a href="#">Russian</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </li>
             </ul>

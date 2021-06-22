@@ -27,9 +27,7 @@
                 <div class="products mb-3">
                     <div class="row justify-content-center">
                         @foreach($products as $product)
-                            @foreach($product as $item)
-                                @include("_components.products.front.product", ["product" => $item])
-                            @endforeach
+                             @include("_components.products.front.product", ["product" => $product])
                         @endforeach
                     </div>
                 </div>

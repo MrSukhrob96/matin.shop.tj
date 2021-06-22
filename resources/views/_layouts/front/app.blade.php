@@ -26,7 +26,12 @@
     <link rel="stylesheet" href="{{ asset('assets/css/skins/skin-demo-3.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/demos/demo-3.css') }}">
 </head>
-
+<style>
+    .product-action form button{
+        width: calc(1200px / 4 - 24px) !important;
+        border: 1px solid #FB5E39 !important;
+    }
+</style>
 <body>
     <div class="page-wrapper">
 
@@ -46,7 +51,7 @@
 
     <div class="mobile-menu-overlay"></div>
 
-    @include("_components.sidebar_menu.front.navbar_menu")
+    @include("_components.sidebar_menu.front.navbar_menu", ['categories' => $categories])
 
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>

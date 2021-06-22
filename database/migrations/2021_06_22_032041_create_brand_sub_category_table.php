@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCollumnToOrdersTable extends Migration
+class CreateBrandSubCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,18 @@ class AddCollumnToOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::table('orders', function (Blueprint $table) {
-            $table->foreignId('user_id')
+        Schema::create('brand_sub_category', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->foreignId('brand_id')
                 ->constrained()
                 ->onUpdate('cascade')
-                ->onDelete('cascade')->after('id');
-            $table->foreignId('product_id')
+                ->onDelete('cascade');
+            $table->foreignId('sub_category_id')
                 ->constrained()
                 ->onUpdate('cascade')
-                ->onDelete('cascade')->after('id');
+                ->onDelete('cascade');
+            $table->softDeletes();
+            $table->timestamps();
         });
     }
 
@@ -32,8 +35,6 @@ class AddCollumnToOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::table('orders', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('brand_sub_category');
     }
 }

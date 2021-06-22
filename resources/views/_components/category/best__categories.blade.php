@@ -4,7 +4,6 @@
             <h2 class="title">Best categories</h2>
             <p class="title-desc"></p>
         </div>
-
         <div class="row">
             <div class="col-lg-6 deal-col">
                 <div class="deal" style="background-image: url('storage/uploads/bg/bg-1.jpg');">
@@ -16,17 +15,18 @@
             <div class="col-lg-6">
                 <div class="products">
                     <div class="row">
+                    @foreach($category as $item)
                         <div class="col-6">
                             <div class="product product-2">
-                                <figure class="product-media">
-                                    <a href="product.html">
-                                        <img src="{{ asset('storage/uploads/products/product-5.jpg') }}" alt="Product image" class="product-image">
+                                <figure class="product-media" style="height: 380px;object-fit:cover; background-color: #fff">
+                                    <a href="{{ route('products', ['category'=>$item->slug]) }}">
+                                        <img src="{{ asset('storage/uploads/categories/'. $item->category_img) }}" alt="Product image" class="product-image">
                                     </a>
                                 </figure>
 
                                 <div class="product-body">
                                     <h3 class="product-title">
-                                        <a href="product.html">Canon - EOS 5D Mark IV DSLR Camera</a>
+                                        <a href="{{ route('products', ['category'=>$item->slug]) }}">{{ $item->category_name }}</a>
                                     </h3>
                                 </div>
                                 <div class="product-price">
@@ -35,36 +35,14 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-6">
-                            <div class="product product-2">
-                                <figure class="product-media">
-                                    <span class="product-label label-circle label-sale">Sale</span>
-                                    <a href="product.html">
-                                        <img src="{{ asset('storage/uploads/products/product-6.jpg') }}" alt="Product image" class="product-image">
-                                    </a>
-                                </figure>
-
-                                <div class="product-body">
-                                    <h3 class="product-title">
-                                        <a href="product.html">Apple - Smart Keyboard Folio for 11-inch iPad Pro</a>
-                                    </h3>
-                                </div>
-                                <div class="product-price">
-                                </div>
-                                <div class="ratings-container">
-                                </div>
-                            </div>
-                        </div>
+                    @endforeach
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="more-container text-center mt-3 mb-0">
-            <a href="{{
-                route('products', ['category'=>'all'])
-            }}" class="btn btn-outline-dark-2 btn-round btn-more"><span>SHOW ALL CATEGORIES</span><i class="icon-long-arrow-right"></i></a>
+            <a href="{{ route('categories') }}" class="btn btn-outline-dark-2 btn-round btn-more"><span>SHOW ALL CATEGORIES</span><i class="icon-long-arrow-right"></i></a>
         </div>
     </div>
 </div>

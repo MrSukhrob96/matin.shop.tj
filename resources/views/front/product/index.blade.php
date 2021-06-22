@@ -8,7 +8,7 @@
                 <div class="col-md-6">
                     <div class="product-gallery product-gallery-vertical">
                         <div class="row">
-                            <figure class="product-main-image">
+                            <figure class="product-main-image border">
                                 <img id="product-zoom" src="{{ asset('storage/uploads/products/'. $product->product_img) }}" data-zoom-image="assets/images/products/single/1-big.jpg" alt="product image">
 
                                 <a href="#" id="btn-product-gallery" class="btn-product-gallery">
@@ -17,21 +17,21 @@
                             </figure>
 
                             <div id="product-zoom-gallery" class="product-image-gallery">
-                                <a class="product-gallery-item active" href="#" data-image="{{ asset('storage/uploads/products/'. $product->product_img) }}">
+                                <a class="product-gallery-item" href="#" data-image="{{ asset('storage/uploads/products/'. $product->product_img) }}">
                                     <img src="{{ asset('storage/uploads/products/'. $product->product_img) }}" alt="product side">
                                 </a>
 
-                                <a class="product-gallery-item" href="#" data-image="{{ asset('storage/uploads/products/'. $product->product_img) }}" data-zoom-image="assets/images/products/single/2-big.jpg">
+                                <!-- <a class="product-gallery-item" href="#" data-image="{{ asset('storage/uploads/products/'. $product->product_img) }}" data-zoom-image="assets/images/products/single/2-big.jpg">
                                     <img src="{{ asset('storage/uploads/products/'. $product->product_img) }}" alt="product cross">
-                                </a>
+                                </a> -->
 
-                                <a class="product-gallery-item" href="#" data-image="{{ asset('storage/uploads/products/'. $product->product_img) }}" data-zoom-image="assets/images/products/single/3-big.jpg">
+                                <!-- <a class="product-gallery-item" href="#" data-image="{{ asset('storage/uploads/products/'. $product->product_img) }}" data-zoom-image="assets/images/products/single/3-big.jpg">
                                     <img src="{{ asset('storage/uploads/products/'. $product->product_img) }}" alt="product with model">
                                 </a>
 
                                 <a class="product-gallery-item" href="#" data-image="{{ asset('storage/uploads/products/'. $product->product_img) }}" data-zoom-image="assets/images/products/single/4-big.jpg">
                                     <img src="{{ asset('storage/uploads/products/'. $product->product_img) }}" alt="product back">
-                                </a>
+                                </a> -->
                             </div>
                         </div>
                     </div>
@@ -62,11 +62,19 @@
                         </div>
 
                         <div class="product-details-action mt-5">
-                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-
+                            <form action="{{ route('profile.order_add', ['product' => $product->slug ]) }}" method="post">
+                                @csrf
+                                <button type="submit" class="btn-product btn-cart border bg-white"><span>add to cart</span></button>
+                            </form>
                             <div class="details-action-wrapper">
-                                <a href="#" class="btn-product" title="Compare"><i class="icon-shopping-cart"></i><span>Add to installment plan</span></a>
-                                <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
+                                <form action="{{ route('profile.order_add', ['product' => $product->id ]) }}" method="post">
+                                    @csrf
+                                    <button type="submit" class="btn btn-product py-2 border"><i class="icon-shopping-cart"></i><span>Add to installment plan</button>
+                                </form>
+                                <form action="{{ route('profile.order_add', ['product' => $product->id ]) }}" method="post">
+                                    @csrf
+                                    <button type="submit" class="btn btn-product btn-wishlist"><span>Add to Wishlist</span></button>
+                                </form>
                             </div>
                         </div>
                     </div>

@@ -3,7 +3,7 @@
 namespace App\Services\Front;
 
 use App\Repositories\Front\CategoryRepository;
-
+use App\Repositories\Front\ProductRepository;
 
 class CategoryService
 {
@@ -11,9 +11,9 @@ class CategoryService
 
 
     public function __construct(
-        CategoryRepository $categories
+        CategoryRepository $categoryRepository
     ) {
-        $this->categories = $categories;
+        $this->categories = $categoryRepository;
     }
 
     public function all_categories()
@@ -26,9 +26,14 @@ class CategoryService
         return $this->categories->get_best_categories([1, 2]);
     }
 
-    public function sub_categories_by_category()
+    public function all_subcategories()
     {
-        
+        return $this->categories->get_all_sub_categories();
+    }
+
+    public function subcategories($category)
+    {
+        return $this->categories->get_all_sub_categories_by_category($category);
     }
 
 }

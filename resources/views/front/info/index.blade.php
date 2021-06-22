@@ -190,7 +190,7 @@
                     </div>
 
                     <div class="col-auto">
-                        <a href="contact.html" class="btn btn-outline-white">
+                        <a href="{{ route('info.contact') }}" class="btn btn-outline-white">
                             <span>CONTACT US</span><i class="icon-long-arrow-right"></i>
                         </a>
                     </div>

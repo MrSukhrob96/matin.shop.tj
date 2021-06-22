@@ -30,7 +30,7 @@
 
             <div class="header-right">
                 <div class="dropdown compare-dropdown">
-                    <a href="{{ route('profile.main') }}" class="dropdown-toggle" role="button"  aria-haspopup="true" aria-expanded="false" data-display="static" title="Compare Products" aria-label="Compare Products">
+                    <a href="{{ route('profile.main') }}" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" data-display="static" title="Compare Products" aria-label="Compare Products">
                         <div class="icon">
                             <i class="icon-user"></i>
                         </div>
@@ -39,20 +39,28 @@
                 </div>
 
                 <div class="wishlist">
-                    <a href="{{ route('profile.wishlist', ['user' => 1]) }}" title="Wishlist">
+                    <a href="{{ route('profile.wishlist') }}" title="Wishlist">
                         <div class="icon">
                             <i class="icon-heart-o"></i>
-                            <span class="wishlist-count badge">3</span>
+                            @if(session()->has('wishlist_count'))
+                                <span class="wishlist-count badge">
+                                    {{ session()->get('wishlist_count') }}
+                                </span>
+                            @endif
                         </div>
                         <p>Wishlist</p>
                     </a>
                 </div>
 
                 <div class="dropdown cart-dropdown">
-                    <a href="{{ route('profile.cart', ['user' => 1]) }}" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" data-display="static">
+                    <a href="{{ route('profile.order') }}" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" data-display="static">
                         <div class="icon">
                             <i class="icon-shopping-cart"></i>
-                            <span class="cart-count">2</span>
+                            @if(session()->has('cart_count'))
+                                <span class="cart-count">
+                                    {{ session()->get('cart_count') }}
+                                </span>
+                            @endif
                         </div>
                         <p>Cart</p>
                     </a>

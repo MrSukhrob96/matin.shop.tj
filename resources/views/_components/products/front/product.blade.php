@@ -1,5 +1,5 @@
 <div class="col-6 col-md-4 col-lg-4">
-    <div class="product product-7 text-center">
+    <div class="product product-7 text-center shadow-sm">
         <figure class="product-media">
 
             @isset($type)
@@ -7,11 +7,10 @@
                 {{ $type }}
             </span>
             @endisset
-
             <a href="{{ 
                         route('product_show', 
                                 [
-                                    'category' => $product->category->slug, 
+                                    'category' => $product->category[0]->slug, 
                                     'product' => $product->slug
                                 ]
                             ) 
@@ -20,11 +19,17 @@
             </a>
 
             <div class="product-action-vertical">
-                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                <form action="{{ route('profile.wishlist_add', ['product' => $product->slug]) }}" method="post">
+                    @csrf
+                    <button type="submit" class="btn-product-icon btn-wishlist btn-expandable border-0"><span>add to wishlist</span></button>
+                </form>
             </div>
 
             <div class="product-action">
-                <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                <form action="{{ route('profile.order_add', ['product' => $product->slug ]) }}" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn-product btn-cart"><span>add to cart</span></button>
+                </form>
             </div>
         </figure>
 

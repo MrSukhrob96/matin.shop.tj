@@ -12,7 +12,7 @@ use App\Models\Product;
 
 class Wishlist extends Model
 {
-    use HasFactory, SoftDeletes, Sluggable;
+    use HasFactory, SoftDeletes;
 
     protected $dates = ['deleted_at'];
 
@@ -20,18 +20,9 @@ class Wishlist extends Model
         return $this->hasOne(User::class);
     }
 
-    public function product()
+    public function products()
     {
-        return $this->hasOne(Product::class);
+        return $this->belongsToMany(Product::class);
     }
-
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'slug' => 'title'
-            ]
-        ];
-    }
-
+    
 }

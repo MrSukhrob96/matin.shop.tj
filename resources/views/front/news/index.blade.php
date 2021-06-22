@@ -12,7 +12,7 @@
                         <div class="col-md-5">
                             <figure class="entry-media">
                                 <a href="single.html">
-                                    <img src="assets/images/blog/listing/post-1.jpg" alt="image desc">
+                                    <img src="{{ asset('assets/img/no-image.jpg') }}" alt="image desc">
                                 </a>
                             </figure>
                         </div>
@@ -58,7 +58,7 @@
             <aside class="col-lg-3 border-left">
                 <div class="sidebar pl-3">
                     <div class="widget widget-search">
-                        <h3 class="widget-title">Search</h3><!-- End .widget-title -->
+                        <h3 class="widget-title">Search</h3>
 
                         <form action="#">
                             <label for="ws" class="sr-only">Search in blog</label>

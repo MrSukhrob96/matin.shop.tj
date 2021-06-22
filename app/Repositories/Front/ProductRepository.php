@@ -34,6 +34,11 @@ class ProductRepository
         return $this->products->orderBy('created_at', 'desc')->take($limit)->get();
     }
 
+    public function get_one_product_by_slug($id)
+    {
+        return $this->products->where("slug", '=', $id)->first();
+    }
+
     public function get_one_product_by_category($category, $product)
     {
         return $this->products->where("slug", $product)->whereHas('category', function ($query) use ($category) {
@@ -45,6 +50,14 @@ class ProductRepository
     {
         return $this->products->whereHas('category', function ($query) use ($category) {
             $query->where('slug', $category);
-        })->take($limit)->get();
+        })->get();
     }
+
+    public function get_products_by_category($category)
+    {
+        return $this->products->whereHas('category', function ($query) use ($category) {
+            $query->where('slug', $category);
+        })->get();
+    }
+
 }
