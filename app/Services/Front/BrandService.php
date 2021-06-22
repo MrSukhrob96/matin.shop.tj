@@ -23,9 +23,8 @@ class BrandService
             return $this->brands->whereHas('sub_categories', function($query) use($category){
                 $query->where("sub_category_id", $category->id);
             })->get();
-        } else {
-            return $this->brands->orderBy("name")->get();
         }
 
+        return $this->brands->orderBy("name")->get();
     }
 }
