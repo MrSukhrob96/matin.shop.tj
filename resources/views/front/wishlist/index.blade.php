@@ -4,7 +4,7 @@
 
 <div class="page-content pt-7">
     <div class="container">
-        @isset($wishlists)
+        @if(isset($wishlists) && $wishlists->count() > 0)
         <table class="table table-wishlist table-mobile">
             <thead>
                 <tr>
@@ -17,8 +17,12 @@
             </thead>
 
             <tbody>
-                @foreach($wishlists as $wishlist)
-                    @foreach($wishlist->products as $product)
+               
+                    @foreach($wishlists as $wishlist)
+                        @foreach($wishlist->products as $product)
+                        <form action="{{ route('profile.wishlist_remove', ['product' => $product->id]) }}" method="post">
+                        @csrf
+                        @method("DELETE")
                         <tr>
                             <td class="product-col">
                                 <div class="product">
@@ -48,17 +52,21 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>
+                            <input type="hidden" name="wishlist_id" value="{{ $wishlist->id }}">
+                            <td class="remove-col">
+                                <button type="submit" class="btn-remove"><i class="icon-close"></i></button>
+                            </td>
                         </tr>
-                    @endforeach
-                @endforeach
+                        </form>
+                        @endforeach
+                    @endforeach              
             </tbody>
         </table>
         @else
 
         <h3>Empty Wishlist list</h3>
 
-        @endisset
+        @endif
     </div>
 </div>
 

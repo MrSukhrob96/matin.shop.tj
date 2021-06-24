@@ -5,7 +5,8 @@ namespace App\Services\Front;
 use App\Repositories\Front\ProductRepository;
 use App\Repositories\Front\WishlistRepository;
 
-class WishlistService{
+class WishlistService
+{
 
     public $wishlists;
     public $products;
@@ -13,8 +14,7 @@ class WishlistService{
     public function __construct(
         WishlistRepository $wishlistRepository,
         ProductRepository $productRepository
-    )
-    {
+    ) {
         $this->wishlists = $wishlistRepository;
         $this->products = $productRepository;
     }
@@ -34,9 +34,11 @@ class WishlistService{
         return redirect()->back();
     }
 
-    public function remove_wishlist()
+    public function remove_wishlist($id)
     {
-
+        $wishlist = $this->wishlists->get_wishlist_by_id($id);
+        session()->forget('wishlist_count', $this->wishlists->get_wishlists_count());
+        $this->wishlists->remove_product_from_wishlist($id);
+        return $wishlist->products()->detach();
     }
-
 }

@@ -790,17 +790,38 @@ $(document).ready(function () {
 });
 
 
-new Vue({
-    el: '#filters',
-    data: {
-        categories: null,
-    },
-    methods: {
-        filter: function () {
-            console.log(this.$refs.filter_categories)            
-        }
-    },
-    mounted() {
-        this.filter()
-    }
+let summa = document.getElementById("summa");
+let rastrochka = document.getElementById("rastrochka");
+let treeMonth = document.getElementById("treeMonth");
+let sixMonth = document.getElementById("sixMonth");
+let oneYear = document.getElementById("oneYear")
+
+function resetClassBtn(){
+    treeMonth.classList.remove("active")
+    sixMonth.classList.remove("active")
+    oneYear.classList.remove("active")
+}
+
+function calc(summa, proc, limit){
+    return (summa + (((summa * proc) / 100) / 12) * limit).toFixed(2)
+}
+
+rastrochka.textContent = calc(+summa.textContent, 20, 3)
+
+treeMonth.addEventListener("click", function() {
+    resetClassBtn()
+    rastrochka.textContent = calc(+summa.textContent, 20, 3)
+    treeMonth.classList.add("active");
+})
+
+sixMonth.addEventListener("click", function() {
+    resetClassBtn()
+    rastrochka.textContent = calc(+summa.textContent, 20, 6)
+    sixMonth.classList.add("active");
+})
+
+oneYear.addEventListener("click", function() {
+    resetClassBtn()
+    rastrochka.textContent = calc(+summa.textContent, 20, 12)
+    oneYear.classList.add("active");
 })

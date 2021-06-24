@@ -21,6 +21,11 @@ class WishlistRepository
         return $this->wishlist->where('user_id', '=', auth()->user()->id)->get();
     }
 
+    public function get_wishlist_by_id($id)
+    {
+        return $this->wishlist->where("id", $id)->first();
+    }
+
     public function remove_product_from_wishlist($id)
     {
         return $this->wishlist->destroy($id);
@@ -28,7 +33,7 @@ class WishlistRepository
 
     public function add_product_to_wishlist()
     {
-         return auth()->user()->wishlists()->create();
+        return auth()->user()->wishlists()->create();
     }
 
     public function get_wishlists_count()

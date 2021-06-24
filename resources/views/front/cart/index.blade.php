@@ -38,13 +38,13 @@
 
                                         </div>
                                     </td>
-                                    <td class="price-col">{{ $product->product_price }} с</td>
+                                    <td class="price-col"> <span id="productPrice">{{ $product->product_price }} </span> с</td>
                                     <td class="quantity-col">
                                         <div class="cart-product-quantity">
-                                            <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+                                            <input type="number" id="productCount" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
                                         </div>
                                     </td>
-                                    <td class="total-col">{{ $product->product_price }} с</td>
+                                    <td class="total-col"><span id="productTotalPrice">{{ $product->product_price }}</span> с</td>
                                     <td class="remove-col">
                                         <form action="{{ route('profile.order_remove', ['order' => $order->id]) }}" method="post">
                                             @csrf
@@ -64,9 +64,21 @@
 
                         <table class="table table-summary">
                             <tbody>
+                                <?php $totalSumma = 0; $i = 1; ?>
+
+                                @foreach($orders as $order)
+                                    @foreach($order->products as $product)
+                                        <tr>
+                                            <td>Продукт {{ $i }}:</td>
+                                            <td>{{ $product->product_price }} сомон</td>
+                                            <?php $totalSumma += $product->product_price;
+                                            $i++; ?>
+                                        </tr>
+                                    @endforeach
+                                @endforeach
                                 <tr class="summary-subtotal">
                                     <td>Total:</td>
-                                    <td>$160.00</td>
+                                    <td> <?php echo $totalSumma; ?> сомон</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -85,9 +97,20 @@
                     <h3>Empty cart list</h3>
                 </div>
             </div>
-            @endisset
+            @endif
         </div>
     </div>
 </div>
+
+
+<script>
+
+let productPrice = document.getElementById("productPrice");
+let productCount = document.getElementById("productCount");
+let productTotalPrice = document.getElementById("productTotalPrice");
+
+
+
+</script>
 
 @endsection

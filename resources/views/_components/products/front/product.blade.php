@@ -34,7 +34,7 @@
         </figure>
 
         <div class="product-body">
-            <h3 class="product-title"><a href="#">{{ $product->product_name }}</a></h3>
+            <h3 class="product-title" style="max-height: 100px; overflow-y: hidden"><a href="#">{{ $product->product_name }}</a></h3>
             <div class="product-price">
                 <span class="out-price">{{ $product->product_price }} сомон</span>
             </div>

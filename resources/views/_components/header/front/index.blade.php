@@ -42,7 +42,7 @@
                     <a href="{{ route('profile.wishlist') }}" title="Wishlist">
                         <div class="icon">
                             <i class="icon-heart-o"></i>
-                            @if(session()->has('wishlist_count'))
+                            @if(session()->has('wishlist_count') &&  session()->get('wishlist_count') > 0)
                                 <span class="wishlist-count badge">
                                     {{ session()->get('wishlist_count') }}
                                 </span>
@@ -56,7 +56,7 @@
                     <a href="{{ route('profile.order') }}" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" data-display="static">
                         <div class="icon">
                             <i class="icon-shopping-cart"></i>
-                            @if(session()->has('cart_count'))
+                            @if(session()->has('cart_count') &&  session()->get('cart_count') > 0)
                                 <span class="cart-count">
                                     {{ session()->get('cart_count') }}
                                 </span>

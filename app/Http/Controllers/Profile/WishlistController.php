@@ -35,4 +35,11 @@ class WishlistController extends Controller
         return redirect()->back();
     }
 
+    public function destroy(Request $request)
+    {
+        $this->wishlists->remove_wishlist($request->input("wishlist_id"));
+        return  redirect()->back();
+    }
+
+
 }

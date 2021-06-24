@@ -4,6 +4,7 @@ namespace App\Services\Front;
 
 use App\Repositories\Front\OrderRepository;
 use App\Repositories\Front\ProductRepository;
+use Exception;
 use Illuminate\Http\Request;
 
 class OrderService
@@ -45,10 +46,16 @@ class OrderService
         if (!$id) {
             return redirect()->back();
         }
+        try{
+            $order = $this->orders->get_one_order_by_id($id);
+            $this->orders->remove_from_order($id);
+            $order->products()->detach();
+            session()->put('cart_count', $this->orders->get_order_count(self::PRODUCT_STATUS_ADDED));
+            return redirect()->back();
+        } catch(Exception $ex){
+            return redirect()->back();
+        }
 
-        $this->orders->remove_from_order($id);
-        session()->put('cart_count', $this->orders->get_order_count(self::PRODUCT_STATUS_ADDED));
-        return redirect()->back();
     }
 
     public function user_orders()

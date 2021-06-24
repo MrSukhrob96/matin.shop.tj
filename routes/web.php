@@ -46,6 +46,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('profile/wishlist', [WishlistController::class, 'index'])->name('wishlist');
         Route::post('profile/wishlist/{product:slug}', [WishlistController::class, 'store'])->name('wishlist_add');
+        Route::delete('profile/wishlist/{product:slug}', [WishlistController::class, 'destroy'])->name('wishlist_remove');
         Route::get('profile/cart', [OrderController::class, 'index'])->name('order');
         Route::post('profile/cart/{product:slug}', [OrderController::class, 'store'])->name('order_add');
         Route::delete('profile/cart/{order:slug}', [OrderController::class, 'destroy'])->name('order_remove');
