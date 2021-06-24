@@ -53,16 +53,18 @@
 
     @include("_components.sidebar_menu.front.navbar_menu", ['categories' => $categories])
 
-    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.hoverIntent.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.waypoints.min.js') }}"></script>
-    <script src="{{ asset('assets/js/superfish.min.js') }}"></script>
-    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap-input-spinner.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.plugin.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script defer src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script defer src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script defer src="{{ asset('assets/js/jquery.hoverIntent.min.js') }}"></script>
+    <script defer src="{{ asset('assets/js/jquery.waypoints.min.js') }}"></script>
+    <script defer src="{{ asset('assets/js/superfish.min.js') }}"></script>
+    <script defer src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+    <script defer src="{{ asset('assets/js/bootstrap-input-spinner.js') }}"></script>
+    <script defer src="{{ asset('assets/js/jquery.plugin.min.js') }}"></script>
+    <script defer src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+    <script defer src="{{ asset('assets/js/axios.min.js') }}"></script>
+    <script defer src="{{ asset('assets/js/vue.min.js') }}"></script>
+    <script defer src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 
 </html>

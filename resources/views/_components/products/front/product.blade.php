@@ -42,7 +42,7 @@
                 <div class="ratings">
                     <div class="ratings-val" style="width: {{$product->product_rating}}%;"></div>
                 </div>
-                <span class="ratings-text">( 6 Reviews )</span>
+
             </div>
         </div>
     </div>

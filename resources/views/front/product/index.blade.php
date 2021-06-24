@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="product-content ">
-                            <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing. Sed lectus. </p>
+                            <p> {{ $product->product_description }} </p>
                         </div>
 
                         <div class="details-filter-row details-row-size mt-5">
