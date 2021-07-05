@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <form class="product-details" method="post" action="{{ route('profile.order_add', ['product' => $product->slug]) }}">
+                    <form class="product-details" method="post" action="{{ route('profile.to_order', ['product' => $product->slug]) }}">
                         @csrf
                         <h3 class="product-title">{{ $product->product_name }}</h3>
                         <div class="row mt-3">
@@ -71,7 +71,7 @@
                             <div class="details-filter-row details-row-size">
                                 <div class="d-flex flex-wrap justify-content-start">
                                     <div class="col mb-1">
-                                        <input type="number" id="qty" class="btn form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+                                        <input type="number" name="order_product_count" id="qty" class="btn form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
                                     </div>
                                     <input type="hidden" name="">
                                     <div class="col mb-1">
@@ -86,7 +86,7 @@
                                 </div>
                             </div>
                             <div class="row mt-2">
-                                <div class="col-lg-4 col-sm-6 mb-2">
+                                <button name="buyAvailability" class="border-0 bg-white col-lg-4 col-sm-6 mb-2">
                                     <div class="info-box p-3">
                                         <i>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
@@ -95,8 +95,8 @@
                                         </i>
                                         <h3 style="margin: 0px 0px 16px; font-size: 16px"> Купить наличными</h3>
                                     </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-6 mb-2">
+                                </button>
+                                <button name="buyInstallments" class="border-0 bg-white col-lg-4 col-sm-6 mb-2">
                                     <div class="info-box p-3">
                                         <i>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
@@ -105,20 +105,17 @@
                                         </i>
                                         <h3 style="margin: 0px 0px 16px; font-size: 16px"> Купить в растрочку</h3>
                                     </div>
-                                </div>
-                                <form class="product-details" method="post" action="{{ route('profile.wishlist_add', ['product' => $product->slug]) }}">
-                                    @csrf
-                                    <a href="" class="col-lg-4 col-sm-6 mb-2">
-                                        <div class="info-box p-3">
-                                            <i>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
-                                                </svg>
-                                            </i>
-                                            <h3 style="margin: 0px 0px 16px; font-size: 16px">Добавить в избранные</h3>
-                                        </div>
-                                    </a>
-                                </form>
+                                </button>
+                                <a href="{{ route('profile.wishlist_add_get', ['product' => $product->slug]) }}" class="col-lg-4 col-sm-6 mb-2">
+                                    <div class="info-box p-3">
+                                        <i>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                            </svg>
+                                        </i>
+                                        <h3 style="margin: 0px 0px 16px; font-size: 16px">Добавить в избранные</h3>
+                                    </div>
+                                </a>
                             </div>
                         </section>
                     </form>

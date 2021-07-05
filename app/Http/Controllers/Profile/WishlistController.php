@@ -31,7 +31,7 @@ class WishlistController extends Controller
 
     public function store(Request $request)
     {
-       $this->wishlists->add_wishlist($request);
+        $this->wishlists->add_wishlist($request);
         return redirect()->back();
     }
 
@@ -42,4 +42,9 @@ class WishlistController extends Controller
     }
 
 
+    public function wishlist_add(Request $request)
+    {
+        $this->wishlists->add_wishlist($request);
+        return redirect()->back();
+    }
 }

@@ -1,7 +1,7 @@
 <div class="header-bottom sticky-header">
     <div class="container pt-1 pb-1">
         <div class="header-left">
-            <div class="dropdown category-dropdown">
+            <div class="dropdown category-dropdown pr-5">
                 <a href="{{ route('categories') }}" class="dropdown-toggle border" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Browse Categories">
                     ALL CATEGORIES <i class="icon-angle-down"></i>
                 </a>

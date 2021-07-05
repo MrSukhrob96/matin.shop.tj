@@ -14,12 +14,6 @@
                             <a class="nav-link" id="tab-orders-link" data-toggle="tab" href="#tab-orders" role="tab" aria-controls="tab-orders" aria-selected="false">Orders</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="tab-downloads-link" data-toggle="tab" href="#tab-downloads" role="tab" aria-controls="tab-downloads" aria-selected="false">Downloads</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="tab-address-link" data-toggle="tab" href="#tab-address" role="tab" aria-controls="tab-address" aria-selected="false">Adresses</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" id="tab-account-link" data-toggle="tab" href="#tab-account" role="tab" aria-controls="tab-account" aria-selected="false">Account Details</a>
                         </li>
                         <li class="nav-item">
@@ -31,88 +25,96 @@
                 <div class="col-md-8 col-lg-9 pl-5">
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="tab-dashboard" role="tabpanel" aria-labelledby="tab-dashboard-link">
-                            <p>Hello <span class="font-weight-normal text-dark">User</span>
+                            <p>Hello <span class="font-weight-normal text-dark">{{ auth()->user()->name }} {{ auth()->user()->surname }}</span>
                                 <br>
                                 From your account dashboard you can view your <a href="#tab-orders" class="tab-trigger-link link-underline">recent orders</a>, manage your <a href="#tab-address" class="tab-trigger-link">shipping and billing addresses</a>, and <a href="#tab-account" class="tab-trigger-link">edit your password and account details</a>.
                             </p>
                         </div>
 
                         <div class="tab-pane fade" id="tab-orders" role="tabpanel" aria-labelledby="tab-orders-link">
-                            <p>No order has been made yet.</p>
-                            <a href="category.html" class="btn btn-outline-primary-2"><span>GO SHOP</span><i class="icon-long-arrow-right"></i></a>
-                        </div>
+                            <table class="table table-wishlist table-mobile">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($orders as $order)
+                                    @foreach($order->products as $product)
+                                    <tr>
+                                        <td class="product-col">
+                                            <div class="product">
+                                                <figure class="product-media">
+                                                    <a href="#">
+                                                        <img src="{{ asset('storage/uploads/products/'. $product->product_img) }}" alt="Product image">
+                                                    </a>
+                                                </figure>
 
-                        <div class="tab-pane fade" id="tab-downloads" role="tabpanel" aria-labelledby="tab-downloads-link">
-                            <p>No downloads available yet.</p>
-                            <a href="category.html" class="btn btn-outline-primary-2"><span>GO SHOP</span><i class="icon-long-arrow-right"></i></a>
-                        </div>
+                                                <h3 class="product-title">
+                                                    <a href="#">{{ $product->product_name }}</a>
+                                                </h3>
+                                            </div>
+                                        </td>
+                                        <td class="price-col">{{ $product->product_price }} c</td>
+                                        <td class="price-col">{{ $order->updated_at }}</td>
+                                        <td class="remove-col">
+                                            <form action="" method="post">
+                                                <input type="hidden" name="wishlist_id" value="">
+                                                <button type="submit" class="btn-remove"><i class="icon-close"></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                    @endforeach
+                                </tbody>
+                            </table>
 
-                        <div class="tab-pane fade" id="tab-address" role="tabpanel" aria-labelledby="tab-address-link">
-                            <p>The following addresses will be used on the checkout page by default.</p>
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
+                                            <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>Prev
+                                        </a>
+                                    </li>
+                                    <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item-total">of 6</li>
+                                    <li class="page-item">
+                                        <a class="page-link page-link-next" href="#" aria-label="Next">
+                                            Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
 
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="card card-dashboard">
-                                        <div class="card-body">
-                                            <h3 class="card-title">Billing Address</h3><!-- End .card-title -->
-
-                                            <p>User Name<br>
-                                                User Company<br>
-                                                John str<br>
-                                                New York, NY 10001<br>
-                                                1-234-987-6543<br>
-                                                yourmail@mail.com<br>
-                                                <a href="#">Edit <i class="icon-edit"></i></a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="card card-dashboard">
-                                        <div class="card-body">
-                                            <h3 class="card-title">Shipping Address</h3><!-- End .card-title -->
-
-                                            <p>You have not set up this type of address yet.<br>
-                                                <a href="#">Edit <i class="icon-edit"></i></a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
                         <div class="tab-pane fade" id="tab-account" role="tabpanel" aria-labelledby="tab-account-link">
-                            <form action="#">
+                            <form action="{{ route('profile.update_data') }}" method="post">
+                                @csrf
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label>First Name *</label>
-                                        <input type="text" class="form-control" required>
+                                        <input type="text" name="name" class="form-control" value="{{ auth()->user()->name }}" required>
                                     </div>
 
                                     <div class="col-sm-6">
                                         <label>Last Name *</label>
-                                        <input type="text" class="form-control" required>
+                                        <input type="text" name="surname" class="form-control" value="{{ auth()->user()->surname }}" required>
                                     </div>
                                 </div>
 
-                                <label>Display Name *</label>
-                                <input type="text" class="form-control" required>
-                                <small class="form-text">This will be how your name will be displayed in the account section and in reviews</small>
-
                                 <label>Email address *</label>
-                                <input type="email" class="form-control" required>
+                                <input type="email" name="email" class="form-control" value="{{ auth()->user()->email }}" required>
 
-                                <label>Current password (leave blank to leave unchanged)</label>
-                                <input type="password" class="form-control">
+                                <label>Phone number *</label>
+                                <input type="text" name="phone" class="form-control" value="{{ auth()->user()->phone }}" required>
 
-                                <label>New password (leave blank to leave unchanged)</label>
-                                <input type="password" class="form-control">
-
-                                <label>Confirm new password</label>
-                                <input type="password" class="form-control mb-2">
-
-                                <button type="submit" class="btn btn-outline-primary-2">
+                                <button type="submit" class="btn btn-outline-primary-2 mt-2">
                                     <span>SAVE CHANGES</span>
                                     <i class="icon-long-arrow-right"></i>
                                 </button>

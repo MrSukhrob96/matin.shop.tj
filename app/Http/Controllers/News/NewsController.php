@@ -26,6 +26,7 @@ class NewsController extends Controller
     {
         return view("front.news.index", array(
             "news" => $this->news->all_news(),
+            "last_news" => $this->news->last_news(),
             "categories" => $this->categories->all_categories()
         ));
     }

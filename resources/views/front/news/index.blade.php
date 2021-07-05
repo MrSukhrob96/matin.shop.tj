@@ -29,7 +29,7 @@
 
                                 <div class="entry-content">
                                     <p>{{ $item->news_text }}</p>
-                                    <a href="single.html" class="read-more">Show</a>
+                                    <a href="single.html" class="read-more">Show All</a>
                                 </div>
                             </div>
                         </div>
@@ -57,25 +57,11 @@
 
             <aside class="col-lg-3 border-left">
                 <div class="sidebar pl-3">
-                    <div class="widget widget-search">
-                        <h3 class="widget-title">Search</h3>
-
-                        <form action="#">
-                            <label for="ws" class="sr-only">Search in blog</label>
-                            <input type="search" class="form-control" name="ws" id="ws" placeholder="Search in blog" required>
-                            <button type="submit" class="btn"><i class="icon-search"></i><span class="sr-only">Search</span></button>
-                        </form>
-                    </div>
-
                     <div class="widget widget-cats">
-                        <h3 class="widget-title">Categories</h3>
-
+                        <h3 class="widget-title py-3">News Categories</h3>
                         <ul>
-                            <li><a href="#">Lifestyle<span>3</span></a></li>
+                            <li><a href="#">MDO Matin<span>3</span></a></li>
                             <li><a href="#">Shopping<span>3</span></a></li>
-                            <li><a href="#">Fashion<span>1</span></a></li>
-                            <li><a href="#">Travel<span>3</span></a></li>
-                            <li><a href="#">Hobbies<span>2</span></a></li>
                         </ul>
                     </div>
 
@@ -83,54 +69,25 @@
                         <h3 class="widget-title">Last News</h3>
 
                         <ul class="posts-list">
+
+                            @foreach($last_news as $item)
                             <li>
                                 <figure>
                                     <a href="#">
-                                        <img src="assets/images/blog/sidebar/post-1.jpg" alt="post">
+                                        @if($item->news_img)
+                                        <img src="{{ $item->news_img }}" alt="post">
+                                        @else
+                                        <img src="{{ asset('assets/img/no-image.jpg') }}" alt="image desc">
+                                        @endif
                                     </a>
                                 </figure>
 
                                 <div>
-                                    <span>Nov 22, 2018</span>
-                                    <h4><a href="#">Aliquam tincidunt mauris eurisus.</a></h4>
+                                    <span>{{ $item->created_at }}</span>
+                                    <h4><a href="#">{{ $item->news_title }}</a></h4>
                                 </div>
                             </li>
-                            <li>
-                                <figure>
-                                    <a href="#">
-                                        <img src="assets/images/blog/sidebar/post-2.jpg" alt="post">
-                                    </a>
-                                </figure>
-
-                                <div>
-                                    <span>Nov 19, 2018</span>
-                                    <h4><a href="#">Cras ornare tristique elit.</a></h4>
-                                </div>
-                            </li>
-                            <li>
-                                <figure>
-                                    <a href="#">
-                                        <img src="assets/images/blog/sidebar/post-3.jpg" alt="post">
-                                    </a>
-                                </figure>
-
-                                <div>
-                                    <span>Nov 12, 2018</span>
-                                    <h4><a href="#">Vivamus vestibulum ntulla nec ante.</a></h4>
-                                </div>
-                            </li>
-                            <li>
-                                <figure>
-                                    <a href="#">
-                                        <img src="assets/images/blog/sidebar/post-4.jpg" alt="post">
-                                    </a>
-                                </figure>
-
-                                <div>
-                                    <span>Nov 25, 2018</span>
-                                    <h4><a href="#">Donec quis dui at dolor tempor interdum.</a></h4>
-                                </div>
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

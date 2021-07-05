@@ -15,12 +15,11 @@ class OrderController extends Controller
     public function __construct(
         CategoryService $categoryService,
         OrderService $orderService
-    )
-    {
+    ) {
         $this->categories = $categoryService;
         $this->orders = $orderService;
     }
-    
+
     public function index()
     {
         return view('front.cart.index', array(
@@ -29,37 +28,30 @@ class OrderController extends Controller
         ));
     }
 
-    public function create()
-    {
-        
-    }
-
     public function store(Request $request)
     {
         $this->orders->add_order($request);
         return redirect()->back();
     }
 
-    public function show($id)
+    public function to_order(Request $request, $product)
     {
-        
+        $this->orders->to_order($request, $product);
+
+        return redirect()->back();
     }
 
-    public function edit($id)
-    {
-        
-    }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        
+        $this->orders->update_status_order_products($request);
+        return redirect()->back();
     }
 
     public function destroy($id)
     {
         $this->orders->remove_order($id);
-        
+
         return redirect()->back();
     }
-    
 }

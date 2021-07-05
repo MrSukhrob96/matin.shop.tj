@@ -43,12 +43,17 @@ Route::middleware(['auth'])->group(function () {
 
     Route::name('profile.')->group(function () {
         Route::get('profile', [ProfileController::class, 'index'])->name('main');
+        Route::post('profile', [ProfileController::class, 'store'])->name('update_data');
 
         Route::get('profile/wishlist', [WishlistController::class, 'index'])->name('wishlist');
+        Route::get('profile/wishlist/{product:slug}', [WishlistController::class, 'wishlist_add'])->name('wishlist_add_get');
         Route::post('profile/wishlist/{product:slug}', [WishlistController::class, 'store'])->name('wishlist_add');
         Route::delete('profile/wishlist/{product:slug}', [WishlistController::class, 'destroy'])->name('wishlist_remove');
+        
         Route::get('profile/cart', [OrderController::class, 'index'])->name('order');
+        Route::post('profile/cart', [OrderController::class, 'update'])->name('order_update');
         Route::post('profile/cart/{product:slug}', [OrderController::class, 'store'])->name('order_add');
+        Route::post('profile/cart/{product:slug}/order', [OrderController::class, 'to_order'])->name('to_order');
         Route::delete('profile/cart/{order:slug}', [OrderController::class, 'destroy'])->name('order_remove');
     });
 

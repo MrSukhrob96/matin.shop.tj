@@ -10,6 +10,8 @@ class NewsService
 
     public $news;
 
+    public const LAST_NEWS_LIMIT = 3;
+
     public const LIMIT_PAGINATION = 12;
 
 
@@ -26,5 +28,10 @@ class NewsService
     public function all_news()
     {
         return $this->news->get_all_news(self::LIMIT_PAGINATION);
+    }
+
+    public function last_news()
+    {
+        return  $this->news->get_last_news(self::LAST_NEWS_LIMIT);
     }
 }

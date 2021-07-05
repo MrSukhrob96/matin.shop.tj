@@ -27,7 +27,12 @@ class OrderRepository
 
     public function get_user_orders()
     {
-        return $this->orders->where('user_id', auth()->user()->id)->distinct()->get();
+        return $this->orders->where('user_id', auth()->user()->id)->where("order_status", 0)->distinct()->get();
+    }
+
+    public function get_orderes($order_statuses, $limit)
+    {
+        return $this->orders->where('user_id', auth()->user()->id)->whereIn('order_status', $order_statuses)->paginate($limit);
     }
 
     public function remove_from_order($id)
