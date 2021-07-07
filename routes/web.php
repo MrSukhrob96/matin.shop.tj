@@ -65,7 +65,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('news', [NewsController::class, 'index'])->name('news'); // новости
 
-Route::get('search', [SearchController::class, ''])->name(''); // резултать поиска
+Route::get('search', [SearchController::class, 'index'])->name('search'); // резултать поиска
 
 Route::name('info.')->group(function () {
     Route::get('about', [InfoController::class, 'about'])->name('about'); // о магазин
