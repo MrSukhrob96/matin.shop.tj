@@ -49,7 +49,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('profile/wishlist/{product:slug}', [WishlistController::class, 'wishlist_add'])->name('wishlist_add_get');
         Route::post('profile/wishlist/{product:slug}', [WishlistController::class, 'store'])->name('wishlist_add');
         Route::delete('profile/wishlist/{product:slug}', [WishlistController::class, 'destroy'])->name('wishlist_remove');
-        
+
         Route::get('profile/cart', [OrderController::class, 'index'])->name('order');
         Route::post('profile/cart', [OrderController::class, 'update'])->name('order_update');
         Route::post('profile/cart/{product:slug}', [OrderController::class, 'store'])->name('order_add');
@@ -63,9 +63,14 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-Route::get('news', [NewsController::class, 'index'])->name('news'); // новости
+Route::get('news.', [NewsController::class, 'index'])->name('news'); // новости
 
-Route::get('search', [SearchController::class, 'index'])->name('search'); // резултать поиска
+Route::name('search.')->group(function () {
+    Route::prefix('search')->group(function () {
+        Route::get('/', [SearchController::class, 'index'])->name('index'); // резултать поиска
+        Route::post('/', [SearchController::class, 'show'])->name('show'); // резултать поиска 
+    });
+});
 
 Route::name('info.')->group(function () {
     Route::get('about', [InfoController::class, 'about'])->name('about'); // о магазин

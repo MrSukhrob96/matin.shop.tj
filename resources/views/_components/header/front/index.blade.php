@@ -18,11 +18,12 @@
             <div class="header-center">
                 <div class="header-search header-search-extended header-search-visible d-none d-lg-block">
                     <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
-                    <form action="#" method="get">
+                    <form action="{{ route('search.show') }}" method="post">
+                        @csrf
                         <div class="header-search-wrapper search-wrapper-wide">
                             <label for="q" class="sr-only">Search</label>
                             <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-                            <input type="search" class="form-control" name="q" id="q" placeholder="Search product ..." required>
+                            <input type="search" name="searching_post" class="form-control" name="q" id="q" placeholder="Search product ...">
                         </div>
                     </form>
                 </div>
@@ -42,10 +43,10 @@
                     <a href="{{ route('profile.wishlist') }}" title="Wishlist">
                         <div class="icon">
                             <i class="icon-heart-o"></i>
-                            @if(session()->has('wishlist_count') &&  session()->get('wishlist_count') > 0)
-                                <span class="wishlist-count badge">
-                                    {{ session()->get('wishlist_count') }}
-                                </span>
+                            @if(session()->has('wishlist_count') && session()->get('wishlist_count') > 0)
+                            <span class="wishlist-count badge">
+                                {{ session()->get('wishlist_count') }}
+                            </span>
                             @endif
                         </div>
                         <p>Wishlist</p>
@@ -56,10 +57,10 @@
                     <a href="{{ route('profile.order') }}" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" data-display="static">
                         <div class="icon">
                             <i class="icon-shopping-cart"></i>
-                            @if(session()->has('cart_count') &&  session()->get('cart_count') > 0)
-                                <span class="cart-count">
-                                    {{ session()->get('cart_count') }}
-                                </span>
+                            @if(session()->has('cart_count') && session()->get('cart_count') > 0)
+                            <span class="cart-count">
+                                {{ session()->get('cart_count') }}
+                            </span>
                             @endif
                         </div>
                         <p>Cart</p>
