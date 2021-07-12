@@ -32,6 +32,7 @@
                         </div>
 
                         <div class="tab-pane fade" id="tab-orders" role="tabpanel" aria-labelledby="tab-orders-link">
+                            @if(isset($orders) && $orders->count() > 0)
                             <table class="table table-wishlist table-mobile">
                                 <thead>
                                     <tr>
@@ -71,7 +72,10 @@
                                     @endforeach
                                 </tbody>
                             </table>
-
+                            @else
+                            <h3>No orders</h3>
+                            @endif
+                            @if($orders->count() > 12)
                             <nav aria-label="Page navigation">
                                 <ul class="pagination justify-content-center">
                                     <li class="page-item disabled">
@@ -90,7 +94,7 @@
                                     </li>
                                 </ul>
                             </nav>
-
+                            @endif
                         </div>
 
                         <div class="tab-pane fade" id="tab-account" role="tabpanel" aria-labelledby="tab-account-link">
