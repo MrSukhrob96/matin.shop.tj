@@ -3,10 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Services\Front\OrderService;
 use Illuminate\Http\Request;
 
 class OrdersController extends Controller
 {
+    public $orderService;
+
+    public function __construct(
+        OrderService $orderService
+    ) {
+        $this->orderService = $orderService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +23,11 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        return view('admin.orders.index');
+        $orders = $this->orderService->all_orders();
+
+        return view('admin.orders.index', array(
+            "orders" => $orders
+        ));
     }
 
     /**
@@ -80,6 +93,6 @@ class OrdersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd($id);
     }
 }

@@ -128,4 +128,10 @@ class OrderService
     {
         return $this->orders->get_orderes([1, 2], self::ORDERS_LIMIT);
     }
+
+    public function all_orders()
+    {
+        return $this->orders->get_all_orders(self::ORDERS_LIMIT);
+    }
+
 }

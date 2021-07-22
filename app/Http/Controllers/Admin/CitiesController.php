@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class UsersController extends Controller
+class CitiesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-
-        return view('admin.users.index', array(
-            "users" => $users
-        ));
+        return view('admin.cities.index');
     }
 
     /**
@@ -29,7 +24,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+        return view('admin.cities.create');
     }
 
     /**
@@ -62,7 +57,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.users.edit');
+        return view('admin.cities.edit');
     }
 
     /**

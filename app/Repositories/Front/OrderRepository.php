@@ -15,6 +15,11 @@ class OrderRepository
         $this->orders = $orders;
     }
 
+    public function get_all_orders($limit)
+    {
+        return $this->orders->paginate($limit);
+    }
+
     public function add_to_order($data)
     {
         return auth()->user()->orders()->create($data);

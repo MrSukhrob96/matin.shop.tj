@@ -7,8 +7,8 @@
             <div class="page-header">
                 <div class="header-sub-title">
                     <nav class="breadcrumb breadcrumb-dash">
-                        <a href="#" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
-                        <span class="breadcrumb-item active">Brands</span>
+                        <a href="#" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Главная</a>
+                        <span class="breadcrumb-item active">Бренды</span>
                     </nav>
                 </div>
             </div>
@@ -34,10 +34,10 @@
                                 <span>Удалить все</span>
                             </button>
 
-                            <button class="btn btn-primary">
+                            <a href="{{ route('admin.brands.create') }}" class="btn btn-primary">
                                 <i class="anticon anticon-plus m-r-5"></i>
                                 <span>Создать</span>
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -45,20 +45,15 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        <div class="checkbox">
-                                            <input id="checkAll" type="checkbox">
-                                            <label for="checkAll" class="m-b-0"></label>
-                                        </div>
                                     </th>
-                                    <th>ID</th>
-                                    <th>Customer</th>
-                                    <th>Date</th>
-                                    <th>Amount</th>
-                                    <th>Status</th>
+                                    <th>Значок бренда</th>
+                                    <th>Название бренда</th>
+                                    <th>Дата</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($brands as $brand)
                                 <tr>
                                     <td>
                                         <div class="checkbox">
@@ -67,79 +62,43 @@
                                         </div>
                                     </td>
                                     <td>
-                                        #5331
-                                    </td>
-                                    <td>
                                         <div class="d-flex align-items-center">
-                                            <div class="avatar avatar-image avatar-sm m-r-10">
-                                                <img src="assets/images/avatars/thumb-1.jpg" alt="">
+                                            <div class="d-flex align-items-center">
+                                                @if($brand->img)
+                                                <img class="img-fluid rounded" src="{{ asset('storage/uploads/brands/' . $brand->img) }}" style="max-width: 60px" alt="">
+                                                @else
+                                                <img class="img-fluid rounded" src="{{ asset('assets/admin/images/others/thumb-9.jpg') }}" style="max-width: 60px" alt="">
+                                                @endif
                                             </div>
-                                            <h6 class="m-b-0">Erin Gonzales</h6>
                                         </div>
                                     </td>
-                                    <td>8 May 2019</td>
-                                    <td>$137.00</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="badge badge-success badge-dot m-r-10"></div>
-                                            <div>Approved</div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
+                                    <td>{{ $brand->name }}</td>
+                                    <td>{{ $brand->created_at ?? Date('Y-m-d') }}</td>
+                                    <td class="text-right d-flex pt-4">
+                                        <a href="{{ route('admin.brands.edit', ['brand' => $brand->id]) }}" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
                                             <i class="anticon anticon-edit"></i>
-                                        </button>
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded">
-                                            <i class="anticon anticon-delete"></i>
-                                        </button>
+                                        </a>
+                                        <form action="{{ route('admin.brands.destroy', ['brand' => $brand->id]) }}" method="post">
+                                            @csrf
+                                            @method("DELETE")
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded">
+                                                <i class="anticon anticon-delete"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <input id="check-item-2" type="checkbox">
-                                            <label for="check-item-2" class="m-b-0"></label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        #5375
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="avatar avatar-image avatar-sm m-r-10">
-                                                <img src="assets/images/avatars/thumb-2.jpg" alt="">
-                                            </div>
-                                            <h6 class="m-b-0">Darryl Day</h6>
-                                        </div>
-                                    </td>
-                                    <td>6 May 2019</td>
-                                    <td>$322.00</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="badge badge-success badge-dot m-r-10"></div>
-                                            <div>Approved</div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
-                                            <i class="anticon anticon-edit"></i>
-                                        </button>
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded">
-                                            <i class="anticon anticon-delete"></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
 
                         <div class="m-t-30">
                             <nav>
                                 <ul class="pagination justify-content-center">
-                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Предыдущий</a></li>
                                     <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Следующий</a></li>
                                 </ul>
                             </nav>
                         </div>

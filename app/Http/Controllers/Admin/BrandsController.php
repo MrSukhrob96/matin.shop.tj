@@ -3,10 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Services\Front\BrandService;
 use Illuminate\Http\Request;
 
 class BrandsController extends Controller
 {
+
+    public $brandService;
+
+    public function __construct(
+        BrandService $brandService
+    ) {
+        $this->brandService = $brandService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +24,11 @@ class BrandsController extends Controller
      */
     public function index()
     {
-        return view('admin.brands.index');
+        $brands = $this->brandService->all_brands();
+        
+        return view('admin.brands.index', array(
+            "brands" => $brands
+        ));
     }
 
     /**
@@ -24,7 +38,7 @@ class BrandsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.brands.create');
     }
 
     /**
@@ -35,7 +49,7 @@ class BrandsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
@@ -57,7 +71,7 @@ class BrandsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view("admin.brands.edit");
     }
 
     /**

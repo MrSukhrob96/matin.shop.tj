@@ -7,8 +7,8 @@
             <div class="page-header">
                 <div class="header-sub-title">
                     <nav class="breadcrumb breadcrumb-dash">
-                        <a href="#" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
-                        <span class="breadcrumb-item active">News</span>
+                        <a href="#" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Главная</a>
+                        <span class="breadcrumb-item active">Новости</span>
                     </nav>
                 </div>
             </div>
@@ -34,32 +34,28 @@
                                 <span>Удалить все</span>
                             </button>
 
-                            <button class="btn btn-primary">
+                            <a href="{{ route('admin.news.create') }}" class="btn btn-primary">
                                 <i class="anticon anticon-plus m-r-5"></i>
                                 <span>Создать</span>
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-hover e-commerce-table">
                             <thead>
                                 <tr>
-                                    <th>
-                                        <div class="checkbox">
-                                            <input id="checkAll" type="checkbox">
-                                            <label for="checkAll" class="m-b-0"></label>
-                                        </div>
+                                    <th> 
                                     </th>
-                                    <th>ID</th>
-                                    <th>Product</th>
-                                    <th>Category</th>
-                                    <th>Price</th>
-                                    <th>Stock Left</th>
-                                    <th>Status</th>
+                                    <th>Изображений</th>
+                                    <th>Заголовок новости</th>
+                                    <th>Текст новости</th>
+                                    <th>Статус новостей</th>
+                                    <th>Дата</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($news as $item)
                                 <tr>
                                     <td>
                                         <div class="checkbox">
@@ -68,77 +64,44 @@
                                         </div>
                                     </td>
                                     <td>
-                                        #31
-                                    </td>
-                                    <td>
                                         <div class="d-flex align-items-center">
                                             <img class="img-fluid rounded" src="{{ asset('assets/admin/images/others/thumb-9.jpg') }}" style="max-width: 60px" alt="">
-                                            <h6 class="m-b-0 m-l-10">Gray Sofa</h6>
                                         </div>
                                     </td>
-                                    <td>Home Decoration</td>
-                                    <td>$912.00</td>
-                                    <td>20</td>
+                                    <td>{{ $item->news_title }}</td>
+                                    <td>{{ $item->news_text }}</td>
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <div class="badge badge-success badge-dot m-r-10"></div>
-                                            <div>In Stock</div>
+                                            <div>2</div>
                                         </div>
                                     </td>
-                                    <td class="text-right">
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
+                                    <td>{{ $item->created_at ?? Date("Y-m-d") }}</td>
+                                    <td class="text-right d-flex pt-4">
+                                        <a href="{{ route('admin.news.edit', ['news' => $item->id]) }}" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
                                             <i class="anticon anticon-edit"></i>
-                                        </button>
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded">
-                                            <i class="anticon anticon-delete"></i>
-                                        </button>
+                                        </a>
+                                        <form action="{{ route('admin.news.destroy', ['news' => $item->id]) }}" method="post">
+                                            @csrf
+                                            @method("DELETE")
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded">
+                                                <i class="anticon anticon-delete"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <input id="check-item-2" type="checkbox">
-                                            <label for="check-item-2" class="m-b-0"></label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        #32
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <img class="img-fluid rounded" src="{{ asset('assets/admin/images/others/thumb-10.jpg') }}" style="max-width: 60px" alt="">
-                                            <h6 class="m-b-0 m-l-10">Beat Headphone</h6>
-                                        </div>
-                                    </td>
-                                    <td>Eletronic</td>
-                                    <td>$137.00</td>
-                                    <td>56</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="badge badge-success badge-dot m-r-10"></div>
-                                            <div>In Stock</div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
-                                            <i class="anticon anticon-edit"></i>
-                                        </button>
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded">
-                                            <i class="anticon anticon-delete"></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
 
                         <div class="m-t-30">
                             <nav>
                                 <ul class="pagination justify-content-center">
-                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Предыдущий</a></li>
                                     <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Следующий</a></li>
                                 </ul>
                             </nav>
                         </div>

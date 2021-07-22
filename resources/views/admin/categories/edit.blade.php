@@ -18,10 +18,12 @@
         <div class="card-header">
             <h4 class="card-title">Edit Category</h4>
         </div>
-        <div class="card-body">
+        <form class="card-body" method="post" action="{{ route('admin.categories.update', ['category' => 1]) }}">
+            @csrf
+            @method('PUT')
             <div class="media align-items-center">
                 <div class="avatar avatar-image  m-h-10 m-r-15" style="height: 80px; width: 80px">
-                    <img src="assets/images/avatars/thumb-3.jpg" alt="">
+                    <img src="{{ asset('assets/admin/images/avatars/thumb-3.jpg') }}" alt="">
                 </div>
                 <div class="m-l-20 m-r-20">
                     <h5 class="m-b-5 font-size-18">Upload Category Image</h5>
@@ -42,36 +44,34 @@
                 </div>
             </div>
             <hr class="m-v-25">
-            <form>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label class="font-weight-semibold" for="userName">Категория Name:</label>
-                        <input type="text" class="form-control" id="userName" placeholder="User Name">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label class="font-weight-semibold" for="language">Подкатегория</label>
-                        <select id="language" class="form-control">
-                            <option>Category product</option>
-                        </select>
-                    </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="font-weight-semibold" for="userName">Категория Name:</label>
+                    <input type="text" class="form-control" id="userName" placeholder="User Name">
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-12">
-                        <label class="font-weight-semibold" for="userName">Описание категория :</label>
-                        <textarea rows="5" type="text" class="form-control" id="userName" placeholder="User Name"></textarea>
-                    </div>
+                <div class="form-group col-md-6">
+                    <label class="font-weight-semibold" for="language">Подкатегория</label>
+                    <select id="language" class="form-control">
+                        <option>Category product</option>
+                    </select>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-12 text-right">
-                        <button class="btn btn-outline-primary m-t-30 mr-3">Назад</button>
-                        <button class="btn btn-primary m-t-30">
-                            <i class="anticon anticon-sync m-r-5"></i>
-                            <span>Изменить</span>
-                        </button>
-                    </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <label class="font-weight-semibold" for="userName">Описание категория :</label>
+                    <textarea rows="5" type="text" class="form-control" id="userName" placeholder="User Name"></textarea>
                 </div>
-            </form>
-        </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-12 text-right">
+                    <a href="{{ url()->previous() }}" class="btn btn-outline-primary m-t-30 mr-3">Назад</a>
+                    <button class="btn btn-primary m-t-30">
+                        <i class="anticon anticon-sync m-r-5"></i>
+                        <span>Изменить</span>
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 

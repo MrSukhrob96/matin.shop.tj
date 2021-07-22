@@ -25,8 +25,8 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        view()->composer('_components.header.front.header_bottom', function ($view) {
-            $view->with('categories', Category::all());
-        });
+        // view()->composer('_components.header.front.header_bottom', function ($view) {
+        //     $view->with('categories', Category::all());
+        // });
     }
 }

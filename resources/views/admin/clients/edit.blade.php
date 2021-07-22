@@ -20,10 +20,12 @@
                 <div class="card-header">
                     <h4 class="card-title">Edit client</h4>
                 </div>
-                <div class="card-body">
+                <form method="post" action="{{ route('admin.clients.update', ['client' => 1]) }}" class="card-body">
+                    @csrf
+                    @method('PUT')
                     <div class="media align-items-center">
                         <div class="avatar avatar-image  m-h-10 m-r-15" style="height: 80px; width: 80px">
-                            <img src="assets/images/avatars/thumb-3.jpg" alt="">
+                            <img src="{{ asset('assets/admin/images/avatars/thumb-3.jpg') }}" alt="">
                         </div>
                         <div class="m-l-20 m-r-20">
                             <h5 class="m-b-5 font-size-18">Upload Image</h5>
@@ -44,37 +46,30 @@
                         </div>
                     </div>
                     <hr class="m-v-25">
-                    <form>
-                        <div class="form-row">
-                            <div class="form-group col-md-8">
-                                <label class="font-weight-semibold" for="userName">News title:</label>
-                                <input type="text" class="form-control" id="userName" placeholder="User Name">
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label class="font-weight-semibold" for="language">Type News</label>
-                                <select id="language" class="form-control">
-                                    <option>type news</option>
-                                </select>
-                            </div>
-                        </div>
 
-                        <div class="form-row">
-                            <div class="form-group col-12">
-                                <label class="font-weight-semibold" for="userName">News text:</label>
-                                <textarea rows="5" type="text" class="form-control" id="userName" placeholder="User Name"></textarea>
-                            </div>
+                    <div class="form-row">
+                        <div class="form-group col-12">
+                            <label class="font-weight-semibold" for="userName">Name:</label>
+                            <input type="text" class="form-control" id="userName" placeholder="User Name">
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-12 text-right">
-                                <button class="btn btn-outline-primary m-t-30 mr-3">Назад</button>
-                                <button class="btn btn-primary m-t-30">
-                                    <i class="anticon anticon-sync m-r-5"></i>
-                                    <span>Изменить</span>
-                                </button>
-                            </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-12">
+                            <label class="font-weight-semibold" for="userName">Client text:</label>
+                            <textarea rows="5" type="text" class="form-control" id="userName" placeholder="User Name"></textarea>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-12 text-right">
+                            <a href="{{ url()->previous() }}" class="btn btn-outline-primary m-t-30 mr-3">Назад</a>
+                            <button class="btn btn-primary m-t-30">
+                                <i class="anticon anticon-sync m-r-5"></i>
+                                <span>Изменить</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
             </div>
         </div>
     </div>

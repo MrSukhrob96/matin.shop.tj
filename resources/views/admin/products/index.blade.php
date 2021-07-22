@@ -7,8 +7,8 @@
             <div class="page-header">
                 <div class="header-sub-title">
                     <nav class="breadcrumb breadcrumb-dash">
-                        <a href="#" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
-                        <span class="breadcrumb-item active">Products</span>
+                        <a href="#" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Главная</a>
+                        <span class="breadcrumb-item active">Продукты</span>
                     </nav>
                 </div>
             </div>
@@ -42,10 +42,10 @@
                                 <span>Удалить все</span>
                             </button>
 
-                            <button class="btn btn-primary">
+                            <a href="{{ route('admin.products.create') }}" class="btn btn-primary">
                                 <i class="anticon anticon-plus m-r-5"></i>
                                 <span>Создать</span>
-                            </button>
+                            </a>
                         </div>
                     </div>
 
@@ -59,15 +59,18 @@
                                             <label for="checkAll" class="m-b-0"></label>
                                         </div>
                                     </th>
-                                    <th>Product</th>
-                                    <th>Category</th>
-                                    <th>Price</th>
-                                    <th>Stock Left</th>
-                                    <th>Status</th>
+                                    <th>Изображений</th>
+                                    <th>Продукты</th>
+                                    <th>Категория</th>
+                                    <th>Цена</th>
+                                    <th>Осталось на складе</th>
+                                    <th>Статус</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($products as $product)
+                                @foreach($product->category as $category)
                                 <tr>
                                     <td>
                                         <div class="checkbox">
@@ -77,12 +80,18 @@
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
-                                            <h6 class="m-b-0 m-l-10">Gray Sofa</h6>
+                                            @if($product->product_img)
+                                            <img class="img-fluid rounded" src="{{ asset('storage/uploads/products/' . $product->product_img) }}" style="max-width: 60px" alt="">
+                                            @else
+                                            <img class="img-fluid rounded" src="{{ asset('assets/admin/images/others/thumb-9.jpg') }}" style="max-width: 60px" alt="">
+                                            @endif
                                         </div>
                                     </td>
-                                    <td>Home Decoration</td>
-                                    <td>$912.00</td>
+                                    <td>
+                                        <h6 class="m-b-0 m-l-10" style="max-width: 240px;">{{ $product->product_name }}</h6>
+                                    </td>
+                                    <td>{{ $category->sub_category_name }}</td>
+                                    <td>{{ $product->product_price }} сомон</td>
                                     <td>20</td>
                                     <td>
                                         <div class="d-flex align-items-center">
@@ -90,25 +99,31 @@
                                             <div>In Stock</div>
                                         </div>
                                     </td>
-                                    <td class="text-right">
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
+                                    <td class="text-right d-flex">
+                                        <a href="{{ route('admin.products.edit', ['product' => $product->id]) }}" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
                                             <i class="anticon anticon-edit"></i>
-                                        </button>
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded">
-                                            <i class="anticon anticon-delete"></i>
-                                        </button>
+                                        </a>
+                                        <form action="{{ route('admin.products.destroy', ['product' => $product->id]) }}" method="post">
+                                            @csrf
+                                            @method("DELETE")
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded">
+                                                <i class="anticon anticon-delete"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
+                                @endforeach
+                                @endforeach
                             </tbody>
                         </table>
                         <div class="m-t-30">
                             <nav>
                                 <ul class="pagination justify-content-center">
-                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Предыдущий</a></li>
                                     <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Следующий</a></li>
                                 </ul>
                             </nav>
                         </div>

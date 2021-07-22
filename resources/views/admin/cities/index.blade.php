@@ -2,12 +2,13 @@
 
 @section('content')
 
+
 <div class="main-content">
     <div class="page-header">
         <div class="header-sub-title">
             <nav class="breadcrumb breadcrumb-dash">
                 <a href="#" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Главная</a>
-                <span class="breadcrumb-item active">Пользователи</span>
+                <span class="breadcrumb-item active">Города</span>
             </nav>
         </div>
     </div>
@@ -33,7 +34,7 @@
                         <span>Удалить все</span>
                     </button>
 
-                    <a href="{{ route('admin.users.create') }}" class="btn btn-primary">
+                    <a href="{{ route('admin.cities.create') }}" class="btn btn-primary">
                         <i class="anticon anticon-plus m-r-5"></i>
                         <span>Создать</span>
                     </a>
@@ -45,17 +46,13 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Имя</th>
-                            <th>Фамилия</th>
-                            <th>Email</th>
-                            <th>Телефон номер</th>
-                            <th>роль</th>
+                            <th>Страна</th>
+                            <th>Город</th>
                             <th>Дата</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($users as $user)
                         <tr>
                             <td>
                                 <div class="checkbox">
@@ -63,26 +60,18 @@
                                     <label for="check-item-1" class="m-b-0"></label>
                                 </div>
                             </td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->surname }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->phone }}</td>
-                            <td>{{ $user->user_role }}</td>
-                            <td>{{ $user->created_at }}</td>
-                            <td class="text-right d-flex">
-                                <a href="{{ route('admin.users.edit', ['user' => $user->id]) }}" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
+                            <td>Tajikistan</td>
+                            <td>Dushanbe</td>
+                            <td>2021.01.01</td>
+                            <td class="text-right">
+                                <a href="{{ route('admin.cities.edit', ['city' => 1]) }}" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
                                     <i class="anticon anticon-edit"></i>
                                 </a>
-                                <form action="{{ route('admin.users.destroy', ['user' => $user->id]) }}" method="post">
-                                    @csrf
-                                    @method("DELETE")
-                                    <button class="btn btn-icon btn-hover btn-sm btn-rounded">
-                                        <i class="anticon anticon-delete"></i>
-                                    </button>
-                                </form>
+                                <button class="btn btn-icon btn-hover btn-sm btn-rounded">
+                                    <i class="anticon anticon-delete"></i>
+                                </button>
                             </td>
                         </tr>
-                        @endforeach
                     </tbody>
                 </table>
 
@@ -102,5 +91,6 @@
         </div>
     </div>
 </div>
+
 
 @endsection

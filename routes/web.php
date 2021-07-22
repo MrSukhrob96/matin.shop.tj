@@ -11,13 +11,14 @@ use App\Http\Controllers\Search\SearchController;
 use App\Http\Controllers\About\InfoController;
 use App\Http\Controllers\Admin\BrandsController;
 use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\CitiesController;
 use App\Http\Controllers\Admin\ClientsController;
 use App\Http\Controllers\Admin\MainController as AdminMainController;
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 use App\Http\Controllers\Admin\OrdersController;
 use App\Http\Controllers\Admin\ProductsController as AdminProductsController;
 use App\Http\Controllers\Admin\UsersController;
-use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 
@@ -32,6 +33,25 @@ use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\Profile\WishlistController;
 use App\Http\Controllers\Profile\OrderController;
 /* =============== Front Routes =============== */
+
+
+
+// Route::middleware(['auth'])->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::name('admin.')->group(function () {
+            Route::get('dashboard', [AdminMainController::class, 'index'])->name('home');
+            Route::get('login', [LoginController::class, 'index'])->name('login');
+            Route::resource('orders', OrdersController::class);
+            Route::resource('products', AdminProductsController::class);
+            Route::resource('categories', CategoriesController::class);
+            Route::resource('brands', BrandsController::class);
+            Route::resource('users', UsersController::class);
+            Route::resource('news', AdminNewsController::class);
+            Route::resource('clients', ClientsController::class);
+            Route::resource('cities', CitiesController::class);
+        });
+    });
+// });
 
 
 Route::get('/', [MainController::class,  'index'])->name('home');
@@ -65,9 +85,6 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::get('logout', LogoutController::class)->name('logout');
-
-    Route::prefix('admin')->group(function () {
-    });
 });
 
 Route::get('news.', [NewsController::class, 'index'])->name('news'); // новости
@@ -79,6 +96,7 @@ Route::name('search.')->group(function () {
     });
 });
 
+
 Route::name('info.')->group(function () {
     Route::get('about', [InfoController::class, 'about'])->name('about'); // о магазин
     Route::get('conditions', [InfoController::class, 'conditions'])->name('conditions'); // условия
@@ -88,8 +106,6 @@ Route::name('info.')->group(function () {
     Route::get('contact', [InfoController::class, 'contact'])->name('contact'); // contact
 });
 
-
-
 Route::get('login', [LoginController::class, 'index'])->name('login');
 
 Route::name('sign')->group(function () {
@@ -97,22 +113,3 @@ Route::name('sign')->group(function () {
     Route::get('register', [RegisterController::class, 'index'])->name('up_get');
     Route::post('register', [RegisterController::class, 'store'])->name('up_post');
 });
-
-
-// Route::middleware(['auth'])->group(function () {
-Route::prefix('admin')->group(function () {
-    Route::name('admin.')->group(function () {
-
-        Route::get('/', [AdminMainController::class, 'index'])->name('home');
-        Route::get('/login', [LoginController::class, 'index'])->name('login');
-
-        Route::resource('orders', OrdersController::class);
-        Route::resource('products', AdminProductsController::class);
-        Route::resource('categories', CategoriesController::class);
-        Route::resource('brands', BrandsController::class);
-        Route::resource('users', UsersController::class);
-        Route::resource('news', AdminNewsController::class);
-        Route::resource('clients', ClientsController::class);
-    });
-});
-// });

@@ -45,7 +45,7 @@
                         <li class="dropdown dropdown-animated scale-left">
                             <div class="pointer" data-toggle="dropdown">
                                 <div class="avatar avatar-image  m-h-10 m-r-15">
-                                    <img src="{{ asset('assets/admin/images/avatars/thumb-3.jpg') }}"  alt="">
+                                    <img src="{{ asset('assets/admin/images/avatars/thumb-3.jpg') }}" alt="">
                                 </div>
                             </div>
                             <div class="p-b-15 p-t-20 dropdown-menu pop-profile">
@@ -56,9 +56,9 @@
                                         </div>
                                         <div class="m-l-10">
                                             @auth
-                                            <p class="m-b-0 text-dark font-weight-semibold">{{ auth()->user()->name }}</p>
+                                            <p class="m-b-0 pt-2 text-dark font-weight-semibold">{{ auth()->user()->name }}</p>
                                             @else
-                                            <p class="m-b-0 text-dark font-weight-semibold">Admin</p>
+                                            <p class="m-b-0 pt-2 text-dark font-weight-semibold">Admin</p>
                                             @endauth
                                         </div>
                                     </div>
@@ -69,25 +69,6 @@
                                             <i class="anticon opacity-04 font-size-16 anticon-user"></i>
                                             <span class="m-l-10">Edit Profile</span>
                                         </div>
-                                        <i class="anticon font-size-10 anticon-right"></i>
-                                    </div>
-                                </a>
-                                <a href="javascript:void(0);" class="dropdown-item d-block p-h-15 p-v-10">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div>
-                                            <i class="anticon opacity-04 font-size-16 anticon-lock"></i>
-                                            <span class="m-l-10">Account Setting</span>
-                                        </div>
-                                        <i class="anticon font-size-10 anticon-right"></i>
-                                    </div>
-                                </a>
-                                <a href="javascript:void(0);" class="dropdown-item d-block p-h-15 p-v-10">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div>
-                                            <i class="anticon opacity-04 font-size-16 anticon-project"></i>
-                                            <span class="m-l-10">Projects</span>
-                                        </div>
-                                        <i class="anticon font-size-10 anticon-right"></i>
                                     </div>
                                 </a>
                                 <a href="javascript:void(0);" class="dropdown-item d-block p-h-15 p-v-10">
@@ -96,14 +77,13 @@
                                             <i class="anticon opacity-04 font-size-16 anticon-logout"></i>
                                             <span class="m-l-10">Logout</span>
                                         </div>
-                                        <i class="anticon font-size-10 anticon-right"></i>
                                     </div>
                                 </a>
                             </div>
                         </li>
                     </ul>
                 </div>
-            </div>    
+            </div>
             <!-- Header END -->
 
             <!-- Side Nav START -->
@@ -115,32 +95,35 @@
                                 <span class="icon-holder">
                                     <i class="anticon anticon-dashboard"></i>
                                 </span>
-                                <span class="title">Dashboard</span>
+                                <span class="title">Приборная панель</span>
                                 <span class="arrow">
                                     <i class="arrow-icon"></i>
                                 </span>
                             </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                   <a href="orders_index.html">Orders</a>
-                                </li>
-                                <li>
-                                    <a href="products_index.html">Products</a>
-                                </li>
+                            <ul class="dropdown-menu" id="menu_list">
                                 <li class="active">
-                                   <a href="categories_index.html">Categories</a>
+                                    <a href="{{ route('admin.orders.index') }}">Заказы</a>
                                 </li>
                                 <li>
-                                    <a href="brands_index.html">Brands</a>
+                                    <a href="{{ route('admin.products.index') }}">Продукты</a>
                                 </li>
-								<li>
-                                    <a href="cities_index.html">Cities</a>
+                                <li>
+                                    <a href="{{ route('admin.categories.index') }}">Категории</a>
                                 </li>
-								<li>
-                                    <a href="users_index.html">Users</a>
+                                <li>
+                                    <a href="{{ route('admin.brands.index') }}">Бренды</a>
                                 </li>
-								<li>
-                                    <a href="news_index.html">News</a>
+                                <li>
+                                    <a href="{{ route('admin.clients.index') }}">Клиенты</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.cities.index') }}">Города</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.users.index') }}">Пользователи</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.news.index') }}">Новости</a>
                                 </li>
                             </ul>
                         </li>
@@ -162,7 +145,6 @@
         </div>
     </div>
 
-    
     <script src="{{ asset('assets/admin/js/vendors.min.js') }}"></script>
     <script src="{{ asset('assets/admin/vendors/chartjs/Chart.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/pages/dashboard-e-commerce.js') }}"></script>

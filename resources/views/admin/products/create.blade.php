@@ -19,10 +19,11 @@
                 <div class="card-header">
                     <h4 class="card-title">Create product</h4>
                 </div>
-                <div class="card-body">
+                <form class="card-body" method="post" action="{{ route('admin.products.store') }}">
+                    @csrf
                     <div class="media align-items-center">
                         <div class="avatar avatar-image  m-h-10 m-r-15" style="height: 80px; width: 80px">
-                            <img src="assets/images/avatars/thumb-3.jpg" alt="">
+                            <img src="{{ asset('assets/admin/images/avatars/thumb-3.jpg') }}" alt="">
                         </div>
                         <div class="m-l-20 m-r-20">
                             <h5 class="m-b-5 font-size-18">Upload Image</h5>
@@ -43,48 +44,47 @@
                         </div>
                     </div>
                     <hr class="m-v-25">
-                    <form>
-                        <div class="form-row">
-                            <div class="form-group col-md-8">
-                                <label class="font-weight-semibold" for="userName">Product Name:</label>
-                                <input type="text" class="form-control" id="userName" placeholder="User Name">
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label class="font-weight-semibold" for="userName">Product Price:</label>
-                                <input type="text" class="form-control" id="userName" placeholder="User Name">
-                            </div>
-                        </div>
 
-                        <div class="form-row">
-                            <div class="form-group col-12">
-                                <textarea rows="5" type="text" class="form-control" id="userName" placeholder="User Name"></textarea>
-                            </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-8">
+                            <label class="font-weight-semibold" for="userName">Product Name:</label>
+                            <input type="text" class="form-control" id="userName" placeholder="User Name">
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label class="font-weight-semibold" for="language">Product Brand</label>
-                                <select id="language" class="form-control">
-                                    <option>Brand product</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label class="font-weight-semibold" for="language">Product Category</label>
-                                <select id="language" class="form-control">
-                                    <option>Category product</option>
-                                </select>
-                            </div>
+                        <div class="form-group col-md-4">
+                            <label class="font-weight-semibold" for="userName">Product Price:</label>
+                            <input type="text" class="form-control" id="userName" placeholder="User Name">
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-12 text-right">
-                                <button class="btn btn-outline-primary m-t-30 mr-3">Назад</button>
-                                <button class="btn btn-primary m-t-30">
-                                    <i class="anticon anticon-plus m-r-5"></i>
-                                    <span>Добавить<span>
-                                </button>
-                            </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-12">
+                            <textarea rows="5" type="text" class="form-control" id="userName" placeholder="User Name"></textarea>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label class="font-weight-semibold" for="language">Product Brand</label>
+                            <select id="language" class="form-control">
+                                <option>Brand product</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="font-weight-semibold" for="language">Product Category</label>
+                            <select id="language" class="form-control">
+                                <option>Category product</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-12 text-right">
+                            <a href="{{ url()->previous() }}" class="btn btn-outline-primary m-t-30 mr-3">Назад</a>
+                            <button class="btn btn-primary m-t-30">
+                                <i class="anticon anticon-plus m-r-5"></i>
+                                <span>Добавить<span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

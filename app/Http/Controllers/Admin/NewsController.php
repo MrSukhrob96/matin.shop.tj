@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\News;
 
 class NewsController extends Controller
 {
@@ -14,7 +15,11 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('admin.news.index');
+        $news = News::paginate(12);
+
+        return view('admin.news.index', array(
+            "news" => $news
+        ));
     }
 
     /**

@@ -16,9 +16,9 @@ class KmController extends Controller
 
     public function token()
     {
-        $response = Http::asForm()->withCookies(Cookie::get('AspNet.Cookies'))->post('http://192.168.10.114:8089/token', [
-            'username' => 'matin',
-            'password' => 'Password@2019',
+        $response = Http::asForm()->post('http://nanana/api/token', [
+            'username' => 'lalala',
+            'password' => 'Password',
             'grant_type' => 'password',
         ]);
 

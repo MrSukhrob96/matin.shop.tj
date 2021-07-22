@@ -9,7 +9,8 @@ class BrandService
 {
 
     public $brands;
-
+    public const LIMIT_BRANDS = 12;
+    
     public function __construct(
         Brand $brands
     ) {
@@ -27,4 +28,10 @@ class BrandService
 
         return $this->brands->orderBy("name")->get();
     }
+
+    public function all_brands()
+    {
+        return $this->brands->paginate(self::LIMIT_BRANDS);
+    }
+
 }

@@ -9,8 +9,8 @@
             <div class="page-header">
                 <div class="header-sub-title">
                     <nav class="breadcrumb breadcrumb-dash">
-                        <a href="#" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
-                        <span class="breadcrumb-item active">Clients</span>
+                        <a href="#" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Главная</a>
+                        <span class="breadcrumb-item active">Клиенты</span>
                     </nav>
                 </div>
             </div>
@@ -36,10 +36,10 @@
                                 <span>Удалить все</span>
                             </button>
 
-                            <button class="btn btn-primary">
+                            <a href="{{ route('admin.clients.create') }}" class="btn btn-primary">
                                 <i class="anticon anticon-plus m-r-5"></i>
                                 <span>Создать</span>
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -47,18 +47,10 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        <div class="checkbox">
-                                            <input id="checkAll" type="checkbox">
-                                            <label for="checkAll" class="m-b-0"></label>
-                                        </div>
                                     </th>
-                                    <th>ID</th>
-                                    <th>Product</th>
-                                    <th>Category</th>
-                                    <th>Price</th>
-                                    <th>Stock Left</th>
-                                    <th>Status</th>
-                                    <th></th>
+                                    <th>Изображений</th>
+                                    <th>Клиенты</th>
+                                    <th>Дата</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -70,64 +62,28 @@
                                         </div>
                                     </td>
                                     <td>
-                                        #31
+                                        <div class="d-flex align-items-center">
+                                            <img class="img-fluid rounded" src="{{ asset('assets/admin/images/others/thumb-9.jpg') }}" style="max-width: 60px" alt="">
+                                        </div>
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
-                                            <h6 class="m-b-0 m-l-10">Gray Sofa</h6>
+                                            <h6 class="m-b-0 m-l-10">Client Name</h6>
                                         </div>
                                     </td>
-                                    <td>Home Decoration</td>
-                                    <td>$912.00</td>
-                                    <td>20</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="badge badge-success badge-dot m-r-10"></div>
-                                            <div>In Stock</div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
+                                    <td>2021.07.21</td>
+                                    <td class="text-right d-flex pt-4">
+                                        <a href="{{ route('admin.clients.edit', ['client' => 1]) }}" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
                                             <i class="anticon anticon-edit"></i>
-                                        </button>
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded">
-                                            <i class="anticon anticon-delete"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <input id="check-item-2" type="checkbox">
-                                            <label for="check-item-2" class="m-b-0"></label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        #32
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <img class="img-fluid rounded" src="assets/images/others/thumb-10.jpg" style="max-width: 60px" alt="">
-                                            <h6 class="m-b-0 m-l-10">Beat Headphone</h6>
-                                        </div>
-                                    </td>
-                                    <td>Eletronic</td>
-                                    <td>$137.00</td>
-                                    <td>56</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="badge badge-success badge-dot m-r-10"></div>
-                                            <div>In Stock</div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
-                                            <i class="anticon anticon-edit"></i>
-                                        </button>
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded">
-                                            <i class="anticon anticon-delete"></i>
-                                        </button>
+                                        </a>
+                                        <form action="{{ route('admin.clients.destroy', ['client' => 1]) }}" method="post">
+                                            @csrf
+                                            @method("DELETE")
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded">
+                                                <i class="anticon anticon-delete"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             </tbody>
@@ -136,11 +92,11 @@
                         <div class="m-t-30">
                             <nav>
                                 <ul class="pagination justify-content-center">
-                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Предыдущий</a></li>
                                     <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Следующий</a></li>
                                 </ul>
                             </nav>
                         </div>
