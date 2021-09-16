@@ -1,8 +1,8 @@
 <aside class="col-lg-3 order-lg-first" id="filters">
     <div class="sidebar sidebar-shop">
         <div class="widget widget-clean">
-            <label>Filters:</label>
-            <a href="#" class="sidebar-filter-clear">Clean All</a>
+            <label>Филтрҳо:</label>
+            <!-- <a href="#" class="sidebar-filter-clear">Clean All</a> -->
         </div>
         <form action="{{ route('filter_categories') }}" method="post">
             @csrf
@@ -10,7 +10,7 @@
             <div class="widget widget-collapsible" style="max-height: 250px; overflow-y: scroll">
                 <h3 class="widget-title">
                     <a data-toggle="collapse" href="#widget-1" role="button" aria-expanded="true" aria-controls="widget-1">
-                        Category
+                        Категорияҳо
                     </a>
                 </h3>
 
@@ -38,7 +38,7 @@
             <div class="widget widget-collapsible" style="max-height: 250px; overflow-y: scroll">
                 <h3 class="widget-title">
                     <a data-toggle="collapse" href="#widget-4" role="button" aria-expanded="true" aria-controls="widget-4">
-                        Brand
+                        Намудҳо
                     </a>
                 </h3>
 
@@ -61,7 +61,7 @@
             <div class="widget widget-collapsible">
                 <h3 class="widget-title">
                     <a data-toggle="collapse" href="#widget-5" role="button" aria-expanded="true" aria-controls="widget-5">
-                        Price
+                        Нарх
                     </a>
                 </h3>
 
@@ -75,7 +75,7 @@
                                 <input type="text" name="price_end" class="form-control" value="20000">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100">Search</button>
+                        <button type="submit" class="btn btn-primary w-100">Ҷустучӯ</button>
                     </div>
                 </div>
             </div>

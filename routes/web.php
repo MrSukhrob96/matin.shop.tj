@@ -34,9 +34,7 @@ use App\Http\Controllers\Profile\WishlistController;
 use App\Http\Controllers\Profile\OrderController;
 /* =============== Front Routes =============== */
 
-
-
-// Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::name('admin.')->group(function () {
             Route::get('dashboard', [AdminMainController::class, 'index'])->name('home');
@@ -51,8 +49,7 @@ use App\Http\Controllers\Profile\OrderController;
             Route::resource('cities', CitiesController::class);
         });
     });
-// });
-
+});
 
 Route::get('/', [MainController::class,  'index'])->name('home');
 
@@ -60,7 +57,6 @@ Route::get('categories', [ProductCategoryController::class, 'index'])->name('cat
 Route::get('category/{sub_category:slug}', [ProductsController::class, 'show'])->name('sub_categories');
 Route::get('category/{category:slug}/products', [ProductsController::class, 'index'])->name('products');
 Route::get('category/{category:slug}/product/{product:slug}', [ProductController::class, 'show'])->name('product_show');
-
 
 Route::post('categories', [ProductCategoryController::class, 'filter'])->name('filter_categories');
 Route::post('category/{sub_category:slug}', [ProductsController::class, 'filter'])->name('filter_subcategory');

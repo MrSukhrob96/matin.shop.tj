@@ -14,21 +14,21 @@
                                 <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                             </svg>
                         </i>
-                        <h3>Our Address</h3>
-                        <p>Republic of Tajikistan, Khujand, Sharq 84</p>
+                        <h3>Суроғаи мо</h3>
+                        <p>Ҷумҳурии Тоҷикистон, ш. Хуҷанд, кӯч. Шарқ 84</p>
                     </div>
                 </a>
                 <a href="" class="col-md-6">
                     <div class="info-box mt-3">
                         <i class="icon-envelope"></i></span>
-                        <h3>Email Us</h3>
+                        <h3>Email</h3>
                         <p>info@matin.tj <br />&nbsp;</p>
                     </div>
                 </a>
                 <a href="" class="col-md-6">
                     <div class="info-box mt-3">
                         <i class="icon-phone"></i>
-                        <h3>Call Us</h3>
+                        <h3>Телефон</h3>
                         <p>+(9923422)61-2-61<br />+(992 44) 630-0-630</p>
                     </div>
                 </a>
@@ -40,20 +40,55 @@
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                 <div class="form-row">
                     <div class="col-md-6 form-group">
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                        <input 
+							type="text" 
+							name="name" 
+							class="form-control" 
+							id="name" 
+							placeholder="Ном ва Насаб" 
+							data-rule="minlen:4" 
+							autocomplete="off"
+							data-msg="На кам аз 4 аломат дошта бошад" 
+						/>
                         <div class="validate"></div>
                     </div>
                     <div class="col-md-6 form-group">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                        <input 
+							type="email"
+							class="form-control"
+							name="email"
+							id="email"
+							placeholder="Your Email"
+							data-rule="email"
+							autocomplete="off"
+							data-msg="Почтаи вуҷуддоштаро ворид намоед" 
+						/>
                         <div class="validate"></div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                    <input 
+						type="text" 
+						class="form-control" 
+						name="subject" 
+						id="subject" 
+						placeholder="Мавзӯъи муроҷат" 
+						data-rule="minlen:4" 
+						autocomplete="off"
+						data-msg="Мавзӯъи муроҷат на кам аз 10 ва на мӯл аз 20 аломат дошта бошад" 
+					/>
                     <div class="validate"></div>
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                    <textarea 
+						class="form-control" 
+						name="message" 
+						rows="5" 
+						data-rule="required" 
+						autocomplete="off"
+						data-msg="Хабари худро дароред" 
+						placeholder="Хабар..."
+					></textarea>
                     <div class="validate"></div>
                 </div>
                 <div class="text-center mt-4">

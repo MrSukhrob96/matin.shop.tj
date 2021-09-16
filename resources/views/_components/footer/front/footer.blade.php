@@ -4,49 +4,38 @@
             <div class="row">
                 <div class="col-sm-6 col-lg-4">
                     <div class="widget">
-                        <h4 class="widget-title">Useful Links</h4>
+                        <h4 class="widget-title">Истинодҳои муфид</h4>
 
                         <ul class="widget-list">
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="contact.html">Contact us</a></li>
+                            <li><a href="{{ route('info.about') }}">Оиди Мо</a></li>
+							<li><a href="{{ route('info.rastrochka') }}">Оиди Нассия</a></li>
+                            <li><a href="{{ route('info.contact') }}">Суроға</a></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-sm-6 col-lg-4">
                     <div class="widget">
-                        <h4 class="widget-title">Customer Service</h4>
-
+                        <h4 class="widget-title">Оиди Хизматрасони</h4>
                         <ul class="widget-list">
-                            <li><a href="#">Payment Methods</a></li>
-                            <li><a href="#">Money-back guarantee!</a></li>
-                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Тарзи ҳисобкунии ҳаққи хизматрасони</a></li>
+							<li><a href="#">Тарзи баргардонии маблағҳо</a></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-sm-6 col-lg-4">
                     <div class="widget">
-                        <h4 class="widget-title">My Account</h4>
+                        <h4 class="widget-title">Ӯтоқи шахсӣ</h4>
 
                         <ul class="widget-list">
-                            <li><a href="#">Sign In</a></li>
-                            <li><a href="cart.html">View Cart</a></li>
-                            <li><a href="#">My Wishlist</a></li>
+                            <li><a href="{{ route('login') }}">Даромад ба ӯтоқи шахсӣ</a></li>
+                            <li><a href="{{ route('signup_get') }}">Рӯйхати харид</a></li>
+                            <li><a href="{{ route('profile.wishlist') }}">Руйхати мунтахаб</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <div class="container">
-            <p class="footer-copyright">Copyright © 2021 MDO MATIN</p>
-            <figure class="footer-payments">
-                <a href="">matin.tj</a>
-            </figure>
         </div>
     </div>
 </footer>

@@ -32,7 +32,7 @@ class Product extends Model
         return $this->hasOne(Brand::class);
     }
 
-    public function sluggable()
+    public function sluggable() : array
     {
         return [
             'slug' => [

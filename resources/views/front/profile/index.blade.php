@@ -8,16 +8,16 @@
                 <aside class="col-md-4 col-lg-3 border-right">
                     <ul class="nav nav-dashboard flex-column mb-3 mb-md-0" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="tab-dashboard-link" data-toggle="tab" href="#tab-dashboard" role="tab" aria-controls="tab-dashboard" aria-selected="true">Dashboard</a>
+                            <a class="nav-link active" id="tab-dashboard-link" data-toggle="tab" href="#tab-dashboard" role="tab" aria-controls="tab-dashboard" aria-selected="true">Маълумот</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="tab-orders-link" data-toggle="tab" href="#tab-orders" role="tab" aria-controls="tab-orders" aria-selected="false">Orders</a>
+                            <a class="nav-link" id="tab-orders-link" data-toggle="tab" href="#tab-orders" role="tab" aria-controls="tab-orders" aria-selected="false">Маҳсулотҳои ман</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="tab-account-link" data-toggle="tab" href="#tab-account" role="tab" aria-controls="tab-account" aria-selected="false">Account Details</a>
+                            <a class="nav-link" id="tab-account-link" data-toggle="tab" href="#tab-account" role="tab" aria-controls="tab-account" aria-selected="false">Вориди таъғирот</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}">Sign Out</a>
+                            <a class="nav-link" href="{{ route('logout') }}">Баромадан</a>
                         </li>
                     </ul>
                 </aside>
@@ -25,7 +25,7 @@
                 <div class="col-md-8 col-lg-9 pl-5">
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="tab-dashboard" role="tabpanel" aria-labelledby="tab-dashboard-link">
-                            <p>Hello <span class="font-weight-normal text-dark">{{ auth()->user()->name }} {{ auth()->user()->surname }}</span>
+                            <p>Ассалому алейкум  <span class="font-weight-normal text-dark">{{ auth()->user()->name }} {{ auth()->user()->surname }}</span>
                                 <br>
                                 From your account dashboard you can view your <a href="#tab-orders" class="tab-trigger-link link-underline">recent orders</a>, manage your <a href="#tab-address" class="tab-trigger-link">shipping and billing addresses</a>, and <a href="#tab-account" class="tab-trigger-link">edit your password and account details</a>.
                             </p>
@@ -36,9 +36,9 @@
                             <table class="table table-wishlist table-mobile">
                                 <thead>
                                     <tr>
-                                        <th>Product</th>
-                                        <th>Price</th>
-                                        <th></th>
+                                        <th>Маҳсулот</th>
+                                        <th>Нарх</th>
+                                        <th>Сана</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -73,7 +73,7 @@
                                 </tbody>
                             </table>
                             @else
-                            <h3>No orders</h3>
+                            <h3>Маҳсулот интихоб нашудааст!</h3>
                             @endif
                             @if($orders->count() > 12)
                             <nav aria-label="Page navigation">
@@ -102,24 +102,24 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <label>First Name *</label>
+                                        <label>Ном</label>
                                         <input type="text" name="name" class="form-control" value="{{ auth()->user()->name }}" required>
                                     </div>
 
                                     <div class="col-sm-6">
-                                        <label>Last Name *</label>
+                                        <label>Насаб</label>
                                         <input type="text" name="surname" class="form-control" value="{{ auth()->user()->surname }}" required>
                                     </div>
                                 </div>
 
-                                <label>Email address *</label>
+                                <label>Логин</label>
                                 <input type="email" name="email" class="form-control" value="{{ auth()->user()->email }}" required>
 
-                                <label>Phone number *</label>
+                                <label>Рақами телефон</label>
                                 <input type="text" name="phone" class="form-control" value="{{ auth()->user()->phone }}" required>
 
                                 <button type="submit" class="btn btn-outline-primary-2 mt-2">
-                                    <span>SAVE CHANGES</span>
+                                    <span>Сабти таъғирот</span>
                                     <i class="icon-long-arrow-right"></i>
                                 </button>
                             </form>

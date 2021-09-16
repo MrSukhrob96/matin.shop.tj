@@ -26,11 +26,9 @@
 
                 <div class="products mb-3">
                     <div class="row justify-content-center">
-                        @if(isset($subCategories) && count($subCategories) > 0)
-                            @foreach($subCategories as $subcategory)
-                                @foreach($subcategory->products as $product)
-                                    @include("_components.products.front.product", ["product" => $product])
-                                @endforeach
+                        @if(isset($products) && count($products) > 0)
+                            @foreach($products as $product)
+                                @include("_components.products.front.product", ["product" => $product])
                             @endforeach
                         @else 
                             <h4>No products</h4>
@@ -40,20 +38,7 @@
 
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
-                                <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>Prev
-                            </a>
-                        </li>
-                        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item-total">of 6</li>
-                        <li class="page-item">
-                            <a class="page-link page-link-next" href="#" aria-label="Next">
-                                Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
-                            </a>
-                        </li>
+                        {{ $products->links() }}
                     </ul>
                 </nav>
             </div>

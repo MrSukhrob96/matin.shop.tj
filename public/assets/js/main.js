@@ -806,22 +806,22 @@ function calc(summa, proc, limit){
     return (summa + (((summa * proc) / 100) / 12) * limit).toFixed(2)
 }
 
-rastrochka.textContent = calc(+summa.textContent, 20, 3)
+rastrochka.textContent = calc(+summa.textContent, 27, 3)
 
 treeMonth.addEventListener("click", function() {
     resetClassBtn()
-    rastrochka.textContent = calc(+summa.textContent, 20, 3)
+    rastrochka.textContent = calc(+summa.textContent, 27, 3)
     treeMonth.classList.add("active");
 })
 
 sixMonth.addEventListener("click", function() {
     resetClassBtn()
-    rastrochka.textContent = calc(+summa.textContent, 20, 6)
+    rastrochka.textContent = calc(+summa.textContent, 27, 6)
     sixMonth.classList.add("active");
 })
 
 oneYear.addEventListener("click", function() {
     resetClassBtn()
-    rastrochka.textContent = calc(+summa.textContent, 20, 12)
+    rastrochka.textContent = calc(+summa.textContent, 27, 12)
     oneYear.classList.add("active");
 })

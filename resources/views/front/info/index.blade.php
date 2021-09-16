@@ -4,19 +4,19 @@
 
 <div class="page-content mt-7">
     <div class="container">
-        <h2 class="title text-center mb-3">Shipping Information</h2>
+        <h2 class="title text-center mb-3">Саволҳои аксар вақт додашаванда</h2>
         <div class="accordion accordion-rounded" id="accordion-1">
             <div class="card card-box card-sm bg-light">
                 <div class="card-header" id="heading-1">
                     <h2 class="card-title">
                         <a role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
-                            How will my parcel be delivered?
+                            Харид тариқи насия аз sale.matin.tj чӣ маънӣ дорад?
                         </a>
                     </h2>
                 </div>
                 <div id="collapse-1" class="collapse show" aria-labelledby="heading-1" data-parent="#accordion-1">
                     <div class="card-body">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.
+                        <i>Ин қарзи истеъмолии муфид ва қулай буда, тавассути он Шумо метавонед харид намуда, баъд пардохт намоед.</i>
                     </div>
                 </div>
             </div>
@@ -25,13 +25,13 @@
                 <div class="card-header" id="heading-2">
                     <h2 class="card-title">
                         <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
-                            Do I pay for delivery?
+                            Мӯҳлати баррасии дархости Шумо чанд рӯз аст?
                         </a>
                     </h2>
                 </div>
                 <div id="collapse-2" class="collapse" aria-labelledby="heading-2" data-parent="#accordion-1">
                     <div class="card-body">
-                        Ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
+                        <i>Мӯҳлати баррасии дархост аз 1 рӯзи корӣ мебошад.</i>
                     </div>
                 </div>
             </div>
@@ -40,13 +40,13 @@
                 <div class="card-header" id="heading-3">
                     <h2 class="card-title">
                         <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
-                            Will I be charged customs fees?
+                            Кӣ метавонед қарзро барои харид барасмият дарорад?
                         </a>
                     </h2>
                 </div>
                 <div id="collapse-3" class="collapse" aria-labelledby="heading-3" data-parent="#accordion-1">
                     <div class="card-body">
-                        Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
+                        <i>Қарз танҳо дар сурати мавҷудияти ҳуҷҷатҳои тасдиқкунандаи пардохтпазирӣ (маълумотнома оиди даромад, корти нафақавӣ) дода мешавад.</i>
                     </div>
                 </div>
             </div>
@@ -55,124 +55,35 @@
                 <div class="card-header" id="heading-4">
                     <h2 class="card-title">
                         <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
-                            My item has become faulty
+                            Чӣ хел ҳуҷҷатҳо барои қарз заруранд?
                         </a>
                     </h2>
                 </div>
                 <div id="collapse-4" class="collapse" aria-labelledby="heading-4" data-parent="#accordion-1">
                     <div class="card-body">
-                        Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
+                        <ul class="nav-item">
+                            <i class="mb-2"><b>Ҳамагӣ 2 ҳуҷҷатҳо:</b></i>
+                            <li class="nav-link">
+                                <i>- шиноснома ва РМА</i>
+                            </li>
+                            <li class="nav-link">
+                                <i>- маълумотнома оиди даромад, нафақа, патент, интиқоли пулӣ.</i>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <h2 class="title text-center mt-7 mb-3">Orders and Returns</h2>
-        <div class="accordion accordion-rounded" id="accordion-2">
             <div class="card card-box card-sm bg-light">
-                <div class="card-header" id="heading2-1">
+                <div class="card-header" id="heading-5">
                     <h2 class="card-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse2-1" aria-expanded="false" aria-controls="collapse2-1">
-                            Tracking my order
+                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
+                            Чӣ мешавад агар ман пардохти қарзро батаъхир гузорам?
                         </a>
                     </h2>
                 </div>
-                <div id="collapse2-1" class="collapse" aria-labelledby="heading2-1" data-parent="#accordion-2">
+                <div id="collapse-5" class="collapse" aria-labelledby="heading-5" data-parent="#accordion-1">
                     <div class="card-body">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.
-                    </div>
-                </div>
-            </div>
-
-            <div class="card card-box card-sm bg-light">
-                <div class="card-header" id="heading2-2">
-                    <h2 class="card-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse2-2" aria-expanded="false" aria-controls="collapse2-2">
-                            I haven’t received my order
-                        </a>
-                    </h2>
-                </div>
-                <div id="collapse2-2" class="collapse" aria-labelledby="heading2-2" data-parent="#accordion-2">
-                    <div class="card-body">
-                        Ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
-                    </div>
-                </div>
-            </div>
-
-            <div class="card card-box card-sm bg-light">
-                <div class="card-header" id="heading2-3">
-                    <h2 class="card-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse2-3" aria-expanded="false" aria-controls="collapse2-3">
-                            How can I return an item?
-                        </a>
-                    </h2>
-                </div>
-                <div id="collapse2-3" class="collapse" aria-labelledby="heading2-3" data-parent="#accordion-2">
-                    <div class="card-body">
-                        Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <h2 class="title text-center mt-7 mb-3">Payments</h2>
-        <div class="accordion accordion-rounded" id="accordion-3">
-            <div class="card card-box card-sm bg-light">
-                <div class="card-header" id="heading3-1">
-                    <h2 class="card-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse3-1" aria-expanded="false" aria-controls="collapse3-1">
-                            What payment types can I use?
-                        </a>
-                    </h2>
-                </div>
-                <div id="collapse3-1" class="collapse" aria-labelledby="heading3-1" data-parent="#accordion-3">
-                    <div class="card-body">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.
-                    </div>
-                </div>
-            </div>
-
-            <div class="card card-box card-sm bg-light">
-                <div class="card-header" id="heading3-2">
-                    <h2 class="card-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse3-2" aria-expanded="false" aria-controls="collapse3-2">
-                            Can I pay by Gift Card?
-                        </a>
-                    </h2>
-                </div>
-                <div id="collapse3-2" class="collapse" aria-labelledby="heading3-2" data-parent="#accordion-3">
-                    <div class="card-body">
-                        Ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
-                    </div>
-                </div>
-            </div>
-
-            <div class="card card-box card-sm bg-light">
-                <div class="card-header" id="heading3-3">
-                    <h2 class="card-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse3-3" aria-expanded="false" aria-controls="collapse3-3">
-                            I can't make a payment
-                        </a>
-                    </h2>
-                </div>
-                <div id="collapse3-3" class="collapse" aria-labelledby="heading3-3" data-parent="#accordion-3">
-                    <div class="card-body">
-                        Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
-                    </div>
-                </div>
-            </div>
-
-            <div class="card card-box card-sm bg-light">
-                <div class="card-header" id="heading3-4">
-                    <h2 class="card-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse3-4" aria-expanded="false" aria-controls="collapse3-4">
-                            Has my payment gone through?
-                        </a>
-                    </h2>
-                </div>
-                <div id="collapse3-4" class="collapse" aria-labelledby="heading3-4" data-parent="#accordion-3">
-                    <div class="card-body">
-                        Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
+                        <i>Барои ҳар рӯзи таъхир дар ҳаҷми 0,5%, вале на кам аз 15 сомонӣ дар як рӯз ҷарима ситонида мешавад.</i>
                     </div>
                 </div>
             </div>
@@ -185,13 +96,13 @@
         <div class="row justify-content-center">
             <div class="col-md-10 col-lg-9 col-xl-7">
                 <div class="row no-gutters flex-column flex-sm-row align-items-sm-center">
-                    <div class="col">
-                        <h3 class="cta-title text-white">If You Have More Questions</h3>                       
+                    <div class="col text-center">
+                        <h3 class="cta-title text-white">Агар Шумо саволҳои бештар дошта бошед</h3>
                     </div>
 
-                    <div class="col-auto">
+                    <div class="col-auto text-center mt-4 mt-md-0">
                         <a href="{{ route('info.contact') }}" class="btn btn-outline-white">
-                            <span>CONTACT US</span><i class="icon-long-arrow-right"></i>
+                            <span>Муроҷат</span><i class="icon-long-arrow-right"></i>
                         </a>
                     </div>
                 </div>

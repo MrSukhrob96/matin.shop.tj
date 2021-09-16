@@ -99,7 +99,7 @@
                                             <div>In Stock</div>
                                         </div>
                                     </td>
-                                    <td class="text-right d-flex">
+                                    <td class="text-right d-flex pt-4">
                                         <a href="{{ route('admin.products.edit', ['product' => $product->id]) }}" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
                                             <i class="anticon anticon-edit"></i>
                                         </a>

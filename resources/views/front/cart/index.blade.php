@@ -11,9 +11,9 @@
                     <table class="table table-cart table-mobile">
                         <thead>
                             <tr>
-                                <th>Product</th>
-                                <th>Price</th>
-                                <th>Remove</th>
+                                <th>Маҳсулот</th>
+                                <th>Нарх</th>
+                                <th>Хориҷ</th>
                             </tr>
                         </thead>
 
@@ -52,7 +52,7 @@
                 </div>
                 <aside class="col-lg-3">
                     <div class="summary summary-cart">
-                        <h3 class="summary-title">Cart Total</h3>
+                        <h3 class="summary-title">Ҷамъ дар сабад</h3>
 
                         <table class="table table-summary">
                             <tbody id="productTotalPrice">
@@ -62,16 +62,16 @@
                                 @foreach($orders as $order)
                                 @foreach($order->products as $product)
                                 <tr data-index="{{ $i }}">
-                                    <td>Продукт {{ $i }}:</td>
-                                    <td>{{ $product->product_price }} сомон</td>
+                                    <td>Маҳсулот №{{ $i }}:</td>
+                                    <td>{{ $product->product_price }} сомонӣ</td>
                                     <?php $totalSumma += $product->product_price;
                                     $i++; ?>
                                 </tr>
                                 @endforeach
                                 @endforeach
                                 <tr class="summary-subtotal">
-                                    <td>Total:</td>
-                                    <td> <?php echo $totalSumma; ?> сомон</td>
+                                    <td>Ҷамъ:</td>
+                                    <td> <?php echo $totalSumma; ?> сомонӣ</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -80,12 +80,12 @@
                             <div class="row">
                                 <div class="col-lg-12 col-sm-6">
                                     <button class="btn btn-outline-primary-2 btn-order btn-block mb-1" type="submit" name="buyInstallments">
-                                        Купить растрочку
+                                        Харид бо насия
                                     </button>
                                 </div>
                                 <div class="col-lg-12 col-sm-6">
                                     <button class="btn btn-outline-primary-2 btn-order btn-block" type="submit" name="buyAvailability">
-                                        Купить наличными
+                                        Харид бе насия
                                     </button>
                                 </div>
                             </div>
@@ -96,7 +96,7 @@
             @else
             <div class="row">
                 <div class="col-12">
-                    <h3>Empty cart list</h3>
+                    <h3>Сабат холӣ аст...</h3>
                 </div>
             </div>
             @endif

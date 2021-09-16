@@ -32,7 +32,7 @@ class SubCategory extends Model
         return $this->belongsToMany(Brand::class, "brand_sub_category", "sub_category_id", "brand_id");
     }
 
-    public function sluggable()
+    public function sluggable() : array
     {
         return [
             'slug' => [

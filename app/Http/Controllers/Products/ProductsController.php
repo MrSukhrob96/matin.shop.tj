@@ -29,9 +29,9 @@ class ProductsController extends Controller
     {
         return view('front.products.index', [
             "categories" => $this->categories->all_categories(),
-            "subcategories" => $this->categories->subcategories($category),
+            "subcategories" => $this->categories->all_subcategories(),
             "products" => $this->products->products_by_category($category),
-            "brands" => $this->brands->sub_category_brands($category)
+            "brands" => $this->brands->sub_category_brands("all")
         ]);
     }
 

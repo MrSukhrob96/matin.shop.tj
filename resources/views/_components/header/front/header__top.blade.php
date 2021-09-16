@@ -20,7 +20,7 @@
                 </li>
                 <li>
                     <div class="header-dropdown">
-                        <a href="#">Russian</a>
+                        <a href="#">Тоҷикӣ</a>
                         <!-- <div class="header-menu">
                             <ul>
                                 <li><a href="#">English</a></li>

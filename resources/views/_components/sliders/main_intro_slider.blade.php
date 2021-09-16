@@ -17,25 +17,25 @@
                             <figure class="slide-image">
                                 <picture>
                                     <source media="(max-width: 480px)" srcset="{{ asset('storage/uploads/slider/slide-1-480w.jpg') }}">
-                                    <img src="{{ asset('storage/uploads/slider/slide-1-480w.jpg') }}" alt="Image Desc">
+                                    <img src="{{ asset('storage/uploads/slider/slide-2-480w.jpg') }}" alt="Image Desc">
                                 </picture>
                             </figure>
 
                             <div class="intro-content">
-                                <h3 class="intro-subtitle text-primary">Daily Deals</h3>
+                                <h3 class="intro-subtitle text-primary">Тахфиф</h3>
                                 <h1 class="intro-title">
-                                    AirPods <br>Earphones
+                                    Нархҳои дастрас <br> ва муфид
                                 </h1>
 
                                 <div class="intro-price">
-                                    <sup>Today:</sup>
+                                    <sup>То:</sup>
                                     <span class="text-primary">
-                                        $247<sup>.99</sup>
+                                        5000<sup>сомонӣ</sup>
                                     </span>
                                 </div>
 
                                 <a href="category.html" class="btn btn-primary btn-round">
-                                    <span>Click Here</span>
+                                    <span>Муфассал</span>
                                     <i class="icon-long-arrow-right"></i>
                                 </a>
                             </div>
@@ -44,26 +44,26 @@
                         <div class="intro-slide">
                             <figure class="slide-image">
                                 <picture>
-                                    <source media="(max-width: 480px)" srcset="{{ asset('storage/uploads/slider/slide-2-480w.jpg') }}">
-                                    <img src="{{ asset('storage/uploads/slider/slide-2.jpg') }}" alt="Image Desc">
+                                    <source media="(max-width: 480px)" srcset="{{ asset('storage/uploads/slider/slide-1-480w.jpg') }}">
+                                    <img src="{{ asset('storage/uploads/slider/slide-1.jpg') }}" alt="Image Desc">
                                 </picture>
                             </figure>
 
                             <div class="intro-content">
-                                <h3 class="intro-subtitle text-primary">Deals and Promotions</h3><!-- End .h3 intro-subtitle -->
+                                <h3 class="intro-subtitle text-primary">Тахфиф</h3>
                                 <h1 class="intro-title">
-                                    Echo Dot <br>3rd Gen
+                                    Нархҳои дастрас <br> ва муфид
                                 </h1>
 
                                 <div class="intro-price">
-                                    <sup class="intro-old-price">$49,99</sup>
+                                    <sup>То:</sup>
                                     <span class="text-primary">
-                                        $29<sup>.99</sup>
+                                        5000<sup>сомонӣ</sup>
                                     </span>
                                 </div>
 
                                 <a href="category.html" class="btn btn-primary btn-round">
-                                    <span>Click Here</span>
+                                    <span>Муфассал</span>
                                     <i class="icon-long-arrow-right"></i>
                                 </a>
                             </div>
@@ -81,9 +81,9 @@
                         </a>
 
                         <div class="banner-content">
-                            <h4 class="banner-subtitle d-lg-none d-xl-block"><a href="#">Top Product</a></h4>
-                            <h3 class="banner-title"><a href="#">Edifier <br>Stereo Bluetooth</a></h3>
-                            <a href="#" class="banner-link">Shop Now<i class="icon-long-arrow-right"></i></a>
+                            <h4 class="banner-subtitle d-lg-none d-xl-block"><a href="#">Махсулотщои бехтарин</a></h4>
+                            <h3 class="banner-title"><a href="#">Наушникхо <br></a></h3>
+                            <a href="#" class="banner-link">муфассал<i class="icon-long-arrow-right"></i></a>
                         </div>
                     </div>
 
@@ -93,9 +93,9 @@
                         </a>
 
                         <div class="banner-content">
-                            <h4 class="banner-subtitle d-lg-none d-xl-block"><a href="#">Clearance</a></h4>
-                            <h3 class="banner-title"><a href="#">GoPro - Fusion 360 <span>Save $70</span></a></h3>
-                            <a href="#" class="banner-link">Shop Now<i class="icon-long-arrow-right"></i></a>
+                            <h4 class="banner-subtitle d-lg-none d-xl-block"><a href="#">Махсулотҳои талабҷӯ</a></h4>
+                            <h3 class="banner-title"><a href="#">Телефонҳои<span>мобилӣ</span></a></h3>
+                            <a href="#" class="banner-link">муфассал<i class="icon-long-arrow-right"></i></a>
                         </div>
                     </div>
 
@@ -105,9 +105,9 @@
                         </a>
 
                         <div class="banner-content">
-                            <h4 class="banner-subtitle d-lg-none d-xl-block"><a href="#">Featured</a></h4>
-                            <h3 class="banner-title"><a href="#">Apple Watch 4 <span>Our Hottest Deals</span></a></h3>
-                            <a href="#" class="banner-link">Shop Now<i class="icon-long-arrow-right"></i></a>
+                            <h4 class="banner-subtitle d-lg-none d-xl-block"><a href="#">Маҳсулотҳои оли нав</a></h4>
+                            <h3 class="banner-title"><a href="#">Соатҳои <span>Apple Watch</span></a></h3>
+                            <a href="#" class="banner-link">муфассал<i class="icon-long-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>

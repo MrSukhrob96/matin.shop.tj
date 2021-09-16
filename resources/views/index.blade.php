@@ -5,17 +5,19 @@
 
 {{--@include("_components.category.best__categories")--}}
 
-@include("_components.sliders.testimorials", ["title" => "Best products", "products" => $best_products])
+@include("_components.sliders.testimorials", ["title" => "Маҳсулотҳои беҳтарин", "products" => $best_products])
 
 <div class="container">
     <hr class="">
 </div>
 
-@include("_components.sliders.testimorials", ["title" => "New products", "products" => $new_products])
+@include("_components.sliders.testimorials", ["title" => "Маҳсулотҳои нав", "products" => $new_products])
 
 
 @include("_components.sliders.clients")
 
-@include("_components.modals.choose__region")
+@if(session()->get("region"))
+	@include("_components.modals.choose__region")
+@endif
 
 @endsection

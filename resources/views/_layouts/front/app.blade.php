@@ -27,11 +27,12 @@
     <link rel="stylesheet" href="{{ asset('assets/css/demos/demo-3.css') }}">
 </head>
 <style>
-    .product-action form button{
-        width: calc(1200px / 4 - 24px) !important;
+    .product-action form button {
+        width: calc(1200px / 4 - 20px) !important;
         border: 1px solid #FB5E39 !important;
     }
 </style>
+
 <body>
     <div class="page-wrapper">
 
@@ -46,12 +47,12 @@
         @include("_components.footer.front.footer")
 
     </div>
-    
+
     <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
 
     <div class="mobile-menu-overlay"></div>
 
-    @include("_components.sidebar_menu.front.navbar_menu", ['categories' => $categories])
+        @include("_components.sidebar_menu.front.navbar_menu", ['categories' => $categories ?? [] ])
 
     <script defer src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script defer src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>

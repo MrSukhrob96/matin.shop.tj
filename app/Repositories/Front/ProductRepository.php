@@ -57,7 +57,7 @@ class ProductRepository
     {
         return $this->products->whereHas('category', function ($query) use ($category) {
             $query->where('slug', $category);
-        })->get();
+        })->paginate(12);
     }
 
 }
